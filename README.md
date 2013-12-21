@@ -44,17 +44,14 @@ header := smtpapi.NewSMTPAPIHeader()
 header.AddFilter("filter", "setting", "value")
 ```
 
-### Get The Headers
+### GetHeaders
 
 ```Go
-
 header.GetHeaders() //returns a JSON string representation of the headers
-
 ```
 
 ## Todo
 
 Write tests and create Set Methods.
-
 
 ## MIT License
