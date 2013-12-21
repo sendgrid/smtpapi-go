@@ -51,3 +51,10 @@ header.AddFilter("filter", "setting", "value")
 header.GetHeaders() //returns a JSON string representation of the headers
 
 ```
+
+## Todo
+
+Write tests and create Set Methods.
+
+
+## MIT License
