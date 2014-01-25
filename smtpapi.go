@@ -1,6 +1,9 @@
 package smtpapi
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
 type SMTPAPIHeader struct {
@@ -31,8 +34,13 @@ func (h *SMTPAPIHeader) AddSubstitution(key, sub string) {
 	h.Sub[key] = append(h.Sub[key], sub)
 }
 
-func (h *SMTPAPIHeader) SetSubstitutions(sub interface{}) {
-	h.Sub = sub
+func (h *SMTPAPIHeader) SetSubstitutions(sub interface{}) error {
+	var e bool
+	if h.Sub, e = sub.(map[string][]string); e {
+		return fmt.Errorf("smtpapi.go error: SetSubstitutions failed")
+	} else {
+		return nil
+	}
 }
 
 func (h *SMTPAPIHeader) AddSection(section, value string) {
@@ -42,16 +50,26 @@ func (h *SMTPAPIHeader) AddSection(section, value string) {
 	h.Section[section] = value
 }
 
-func (h *SMTPAPIHeader) SetSections(sections interface{}) {
-	h.Section = sections
+func (h *SMTPAPIHeader) SetSections(sections interface{}) error {
+	var e bool
+	if h.Section, e = sections.(map[string]string); e {
+		return fmt.Errorf("smtpapi.go error: SetSections failed")
+	} else {
+		return nil
+	}
 }
 
 func (h *SMTPAPIHeader) AddCategory(value string) {
 	h.Category = append(h.Category, value)
 }
 
-func (h *SMTPAPIHeader) SetCategories(categories interface{}) {
-	h.Category = categories
+func (h *SMTPAPIHeader) SetCategories(categories interface{}) error {
+	var e bool
+	if h.Category, e = categories.([]string); e {
+		return fmt.Errorf("smtpapi.go ")
+	} else {
+		return nil
+	}
 }
 
 func (h *SMTPAPIHeader) AddUniqueArg(arg, value string) {
@@ -61,8 +79,13 @@ func (h *SMTPAPIHeader) AddUniqueArg(arg, value string) {
 	h.Unique_args[arg] = value
 }
 
-func (h *SMTPAPIHeader) SetUniqueArgs(unique interface{}) {
-	h.Unique_args = unique
+func (h *SMTPAPIHeader) SetUniqueArgs(unique interface{}) error {
+	var e bool
+	if h.Unique_args, e = unique.(map[string]string); e {
+		return fmt.Errorf("smtpapi.go error: SetUniqueArgs failed")
+	} else {
+		return nil
+	}
 }
 
 func (h *SMTPAPIHeader) AddFilter(filter, setting, value string) {
