@@ -25,7 +25,7 @@ header.AddSection("section", "value")
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
 
-header.AddSubstitution("category")
+header.AddCategory("category")
 ```
 
 ### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
@@ -49,9 +49,5 @@ header.AddFilter("filter", "setting", "value")
 ```Go
 header.GetHeaders() //returns a JSON string representation of the headers
 ```
-
-## Todo
-
-Write tests and create Set Methods.
 
 ## MIT License
