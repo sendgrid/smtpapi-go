@@ -2,6 +2,8 @@
 
 This is a simple library to simplify the process of using [SendGrid's](https://sendgrid.com) [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html).
 
+[![BuildStatus](https://travis-ci.org/sendgrid/sendgrid-go.png?branch=master)](https://travis-ci.org/sendgrid/sendgrid-go)
+
 # Examples
 
 ### [Substitution](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
