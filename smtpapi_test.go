@@ -2,16 +2,28 @@ package smtpapi
 
 import (
 	"encoding/json"
+  "io/ioutil"
 	"reflect"
 	"testing"
 )
+
+func ExampleJson() map[string]interface {} {
+  data, _ := ioutil.ReadFile("smtpapi_test_strings.json")
+
+  var f interface{}
+  json.Unmarshal(data, &f)
+
+  json := f.(map[string]interface{})
+
+  return json
+}
 
 func Test_JsonString(t *testing.T) {
   header := NewSMTPAPIHeader()
 
   result, _ := header.JsonString()
 
-  if result != "{}" {
+  if result != ExampleJson()["json_string"] {
     t.Errorf("Result did not match")
   }
 }
@@ -22,7 +34,7 @@ func Test_AddTo(t *testing.T) {
   header.AddTo("addTo@mailinator.com")
   result, _ := header.JsonString()
 
-  if result != "{\"to\":[\"addTo@mailinator.com\"]}" {
+  if result != ExampleJson()["add_to"] {
     t.Errorf("Result did not match")
   }
 }
@@ -33,7 +45,7 @@ func Test_SetTos(t *testing.T) {
   header.SetTos([]string{"setTos@mailinator.com"})
   result, _ := header.JsonString()
 
-  if result != "{\"to\":[\"setTos@mailinator.com\"]}" {
+  if result != ExampleJson()["set_tos"] {
     t.Errorf("Result did not match")
   }
 }
@@ -44,7 +56,7 @@ func Test_AddSubstitution(t *testing.T) {
   header.AddSubstitution("sub", "val")
   result, _ := header.JsonString()
 
-  if result != "{\"sub\":{\"sub\":[\"val\"]}}" {
+  if result != ExampleJson()["add_substitution"] {
     t.Errorf("Result did not match")
   }
 }
@@ -58,7 +70,7 @@ func Test_SetSubstitutions(t *testing.T) {
   header.SetSubstitutions(sub)
   result, _ := header.JsonString()
 
-  if result != "{\"sub\":{\"sub\":[\"val\"]}}" {
+  if result != ExampleJson()["set_substitutions"] {
     t.Errorf("Result did not match")
   }
 }
@@ -70,7 +82,7 @@ func Test_AddUniqueArg(t *testing.T) {
   header.AddUniqueArg("add_unique_argument_key_2", "add_unique_argument_value_2")
   result, _ := header.JsonString()
 
-  if result != "{\"unique_args\":{\"add_unique_argument_key\":\"add_unique_argument_value\",\"add_unique_argument_key_2\":\"add_unique_argument_value_2\"}}" {
+  if result != ExampleJson()["add_unique_arg"] {
     t.Errorf("Result did not match")
   }
 }
@@ -84,7 +96,7 @@ func Test_SetUniqueArgs(t *testing.T) {
   header.SetUniqueArgs(args)
   result, _ := header.JsonString()
 
-  if result != "{\"unique_args\":{\"set_unique_argument_key\":\"set_unique_argument_value\"}}" {
+  if result != ExampleJson()["set_unique_args"] {
     t.Errorf("Result did not match")
   }
 }
@@ -96,7 +108,7 @@ func Test_AddCategory(t *testing.T) {
   header.AddCategory("addCategory2")
   result, _ := header.JsonString()
 
-  if result != "{\"category\":[\"addCategory\",\"addCategory2\"]}" {
+  if result != ExampleJson()["add_category"] {
     t.Errorf("Result did not match")
   }
 }
@@ -107,7 +119,7 @@ func Test_SetCategories(t *testing.T) {
   header.SetCategories([]string{"setCategories"})
   result, _ := header.JsonString()
 
-  if result != "{\"category\":[\"setCategories\"]}" {
+  if result != ExampleJson()["set_categories"] {
     t.Errorf("Result did not match")
   }
 }
@@ -119,7 +131,7 @@ func Test_AddSection(t *testing.T) {
   header.AddSection("set_section_key_2", "set_section_value_2")
   result, _ := header.JsonString()
 
-  if result != "{\"section\":{\"set_section_key\":\"set_section_value\",\"set_section_key_2\":\"set_section_value_2\"}}" {
+  if result != ExampleJson()["add_section"] {
     t.Errorf("Result did not match")
   }
 }
@@ -133,7 +145,7 @@ func Test_SetSections(t *testing.T) {
   header.SetSections(sections)
   result, _ := header.JsonString()
 
-  if result != "{\"section\":{\"set_section_key\":\"set_section_value\"}}" {
+  if result != ExampleJson()["set_sections"] {
     t.Errorf("Result did not match")
   }
 }
