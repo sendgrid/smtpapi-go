@@ -6,12 +6,12 @@ import (
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
 type SMTPAPIHeader struct {
-	To          []string            `json:"to,omitempty"`
-	Sub         map[string][]string `json:"sub,omitempty"`
-	Section     map[string]string   `json:"section,omitempty"`
-	Category    []string            `json:"category,omitempty"`
-	Unique_args map[string]string   `json:"unique_args,omitempty"`
-	Filters     map[string]Filter   `json:"filters,omitempty"`
+	To         []string            `json:"to,omitempty"`
+	Sub        map[string][]string `json:"sub,omitempty"`
+	Section    map[string]string   `json:"section,omitempty"`
+	Category   []string            `json:"category,omitempty"`
+	UniqueArgs map[string]string   `json:"unique_args,omitempty"`
+	Filters    map[string]Filter   `json:"filters,omitempty"`
 }
 
 type Filter struct {
@@ -79,14 +79,14 @@ func (h *SMTPAPIHeader) SetCategories(categories []string) {
 }
 
 func (h *SMTPAPIHeader) AddUniqueArg(arg, value string) {
-	if h.Unique_args == nil {
-		h.Unique_args = make(map[string]string)
+	if h.UniqueArgs == nil {
+		h.UniqueArgs = make(map[string]string)
 	}
-	h.Unique_args[arg] = value
+	h.UniqueArgs[arg] = value
 }
 
 func (h *SMTPAPIHeader) SetUniqueArgs(args map[string]string) {
-	h.Unique_args = args
+	h.UniqueArgs = args
 }
 
 func (h *SMTPAPIHeader) AddFilter(filter, setting, value string) {
@@ -108,7 +108,7 @@ func (h *SMTPAPIHeader) SetFilter(filter string, value *Filter) {
 	h.Filters[filter] = *value
 }
 
-func (h *SMTPAPIHeader) JsonString() (string, error) {
+func (h *SMTPAPIHeader) JSONString() (string, error) {
 	headers, e := json.Marshal(h)
 	return string(headers), e
 }
