@@ -112,6 +112,24 @@ func TestSetCategories(t *testing.T) {
 	}
 }
 
+func TestAddUniqueArgs(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	headers.AddUniqueArg("arg", "value")
+	if len(headers.Unique_args) == 0 {
+		t.Errorf("AddUniqueArg Failed - %v", headers.Unique_args)
+	}
+}
+
+func TestSetUniqueArgs(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	args := make(map[string]string)
+	args["arg"] = "val"
+	headers.SetUniqueArgs(args)
+	if len(headers.Unique_args) == 0 {
+		t.Errorf("SetUniqueArgs Failed - %v", headers.Unique_args)
+	}
+}
+
 func Test_Adds(t *testing.T) {
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
 	headers := NewSMTPAPIHeader()
