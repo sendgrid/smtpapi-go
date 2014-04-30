@@ -2,198 +2,228 @@ package smtpapi
 
 import (
 	"encoding/json"
+	"io/ioutil"
 	"reflect"
 	"testing"
 )
 
-var testEmail = "email@email.com"
-var category = "category"
+func ExampleJson() map[string]interface{} {
+	data, _ := ioutil.ReadFile("smtpapi_test_strings.json")
+	var f interface{}
+	json.Unmarshal(data, &f)
+	json := f.(map[string]interface{})
+	return json
+}
 
 func TestNewSMTPIAPIHeader(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	if headers == nil {
+	header := NewSMTPAPIHeader()
+	if header == nil {
 		t.Error("NewSMTPAPIHeader() should never return nil")
 	}
 }
 
 func TestAddTo(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	headers.AddTo(testEmail)
-	if len(headers.To) == 0 {
-		t.Errorf("AddTo Failed - %v", headers.To)
+	header := NewSMTPAPIHeader()
+	header.AddTo("addTo@mailinator.com")
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_to"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestAddTos(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	tos := []string{testEmail, testEmail}
-	headers.AddTos(tos)
-	if len(headers.To) == 0 {
-		t.Errorf("AddTos Failed - %v", headers.To)
+	header := NewSMTPAPIHeader()
+	tos := []string{"addTo@mailinator.com"}
+	header.AddTos(tos)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_to"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestSetTos(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	tos := []string{testEmail, testEmail}
-	headers.SetTos(tos)
-	if len(headers.To) == 0 {
-		t.Errorf("SetTos Failed - %v", headers.To)
+	header := NewSMTPAPIHeader()
+	header.SetTos([]string{"setTos@mailinator.com"})
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_tos"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestAddSubstitution(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	headers.AddSubstitution("sub", "val")
-	if len(headers.Sub) == 0 {
-		t.Errorf("AddSubstitution Failed - %v", headers.Sub)
+	header := NewSMTPAPIHeader()
+	header.AddSubstitution("sub", "val")
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_substitution"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestAddSubstitutions(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	headers.AddSubstitutions("sub", []string{"val", "val2"})
-	if len(headers.Sub) == 0 && len(headers.Sub["sub"]) != 2 {
-		t.Errorf("AddSubstitutions Failed - %v", headers.Sub)
+	header := NewSMTPAPIHeader()
+	header.AddSubstitutions("sub", []string{"val"})
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_substitution"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestSetSubstitutions(t *testing.T) {
-	headers := NewSMTPAPIHeader()
+	header := NewSMTPAPIHeader()
 	sub := make(map[string][]string)
-	sub["sub"] = []string{"val", "val2"}
-	headers.SetSubstitutions(sub)
-	if len(headers.Sub) == 0 && len(headers.Sub["sub"]) != 2 {
-		t.Errorf("SetSubstitutions Failed - %v", headers.Sub)
+	sub["sub"] = []string{"val"}
+	header.SetSubstitutions(sub)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_substitutions"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestAddSection(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	headers.AddSection("section", "value")
-	if len(headers.Section) == 0 {
-		t.Errorf("AddSection Failed - %v", headers.Section)
+	header := NewSMTPAPIHeader()
+	header.AddSection("set_section_key", "set_section_value")
+	header.AddSection("set_section_key_2", "set_section_value_2")
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_section"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestSetSections(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	section := make(map[string]string)
-	section["section"] = "val"
-	headers.SetSections(section)
-	if len(headers.Section) == 0 {
-		t.Errorf("SetSections Failed - %v", headers.Section)
+	header := NewSMTPAPIHeader()
+	sections := make(map[string]string)
+	sections["set_section_key"] = "set_section_value"
+	header.SetSections(sections)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_sections"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestAddCategory(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	headers.AddCategory(category)
-	if len(headers.Category) == 0 {
-		t.Errorf("AddCategory Failed - %v", headers.Category)
+	header := NewSMTPAPIHeader()
+	header.AddCategory("addCategory")
+	header.AddCategory("addCategory2")
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_category"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestAddCategories(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	categories := []string{category, category}
-	headers.AddCategories(categories)
-	if len(headers.Category) == 0 {
-		t.Errorf("AddCategories Failed - %v", headers.Category)
+	header := NewSMTPAPIHeader()
+	categories := []string{"addCategory", "addCategory2"}
+	header.AddCategories(categories)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_category"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestSetCategories(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	categories := []string{category, category}
-	headers.SetCategories(categories)
-	if len(headers.Category) == 0 {
-		t.Errorf("SetCategories Failed - %v", headers.Category)
+	header := NewSMTPAPIHeader()
+	header.SetCategories([]string{"setCategories"})
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_categories"] {
+		t.Errorf("Result did not match")
 	}
 }
 
-func TestAddUniqueArgs(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	headers.AddUniqueArg("arg", "value")
-	if len(headers.UniqueArgs) == 0 {
-		t.Errorf("AddUniqueArg Failed - %v", headers.UniqueArgs)
+func TestAddUniqueArg(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	header.AddUniqueArg("add_unique_argument_key", "add_unique_argument_value")
+	header.AddUniqueArg("add_unique_argument_key_2", "add_unique_argument_value_2")
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_unique_arg"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestSetUniqueArgs(t *testing.T) {
-	headers := NewSMTPAPIHeader()
+	header := NewSMTPAPIHeader()
 	args := make(map[string]string)
-	args["arg"] = "val"
-	headers.SetUniqueArgs(args)
-	if len(headers.UniqueArgs) == 0 {
-		t.Errorf("SetUniqueArgs Failed - %v", headers.UniqueArgs)
+	args["set_unique_argument_key"] = "set_unique_argument_value"
+	header.SetUniqueArgs(args)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_unique_args"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestAddFilter(t *testing.T) {
-	headers := NewSMTPAPIHeader()
-	headers.AddFilter("filter", "setting", "value")
-	if len(headers.Filters) == 0 {
-		t.Errorf("AddFilter Failed - %v", headers.Filters)
+	header := NewSMTPAPIHeader()
+	header.AddFilter("footer", "text/html", "<strong>boo</strong>")
+	if len(header.Filters) != 1 {
+		t.Error("AddFilter failed")
 	}
 }
 
 func TestSetFilter(t *testing.T) {
-	headers := NewSMTPAPIHeader()
+	header := NewSMTPAPIHeader()
 	filter := &Filter{
 		Settings: make(map[string]string),
 	}
-	filter.Settings["setting"] = "value"
-	headers.SetFilter("filter", filter)
-	if len(headers.Filters) == 0 {
-		t.Errorf("SetFilter Failed - %v", headers.Filters)
+	filter.Settings["enable"] = "1"
+	filter.Settings["text/plain"] = "You can haz footers!"
+	header.SetFilter("footer", filter)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_filters"] {
+		t.Errorf("Result did not match")
+	}
+}
+
+func TestJSONString(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	result, _ := header.JSONString()
+	if result != ExampleJson()["json_string"] {
+		t.Errorf("Result did not match")
 	}
 }
 
 func TestJSONStringWithAdds(t *testing.T) {
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
-	headers := NewSMTPAPIHeader()
-	headers.AddTo("test@email.com")
-	headers.AddSubstitution("subKey", "subValue")
-	headers.AddSection("testSection", "sectionValue")
-	headers.AddCategory("testCategory")
-	headers.AddUniqueArg("testUnique", "uniqueValue")
-	headers.AddFilter("testFilter", "filter", "filterValue")
-	if h, e := headers.JSONString(); e != nil {
+	header := NewSMTPAPIHeader()
+	header.AddTo("test@email.com")
+	header.AddSubstitution("subKey", "subValue")
+	header.AddSection("testSection", "sectionValue")
+	header.AddCategory("testCategory")
+	header.AddUniqueArg("testUnique", "uniqueValue")
+	header.AddFilter("testFilter", "filter", "filterValue")
+	if h, e := header.JSONString(); e != nil {
 		t.Errorf("Error! %s", e)
 	} else {
 		testHeader, _ := json.Marshal([]byte(h))
 		if reflect.DeepEqual(testHeader, validHeader) {
 			t.Logf("Success")
 		} else {
-			t.Errorf("Invalid headers")
+			t.Errorf("Invalid header")
 		}
 	}
 }
 
 func TestJSONStringWithSets(t *testing.T) {
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
-	headers := NewSMTPAPIHeader()
-	headers.SetTos([]string{"test@email.com"})
+	header := NewSMTPAPIHeader()
+	header.SetTos([]string{"test@email.com"})
 	sub := make(map[string][]string)
 	sub["subKey"] = []string{"subValue"}
-	headers.SetSubstitutions(sub)
+	header.SetSubstitutions(sub)
 	sections := make(map[string]string)
 	sections["testSection"] = "sectionValue"
-	headers.SetSections(sections)
-	headers.SetCategories([]string{"testCategory"})
+	header.SetSections(sections)
+	header.SetCategories([]string{"testCategory"})
 	unique := make(map[string]string)
 	unique["testUnique"] = "uniqueValue"
-	headers.SetUniqueArgs(unique)
-	headers.AddFilter("testFilter", "filter", "filterValue")
-	if h, e := headers.JSONString(); e != nil {
+	header.SetUniqueArgs(unique)
+	header.AddFilter("testFilter", "filter", "filterValue")
+	if h, e := header.JSONString(); e != nil {
 		t.Errorf("Error! %s", e)
 	} else {
 		testHeader, _ := json.Marshal([]byte(h))
 		if reflect.DeepEqual(testHeader, validHeader) {
 			t.Logf("Success")
 		} else {
-			t.Errorf("Invalid headers")
+			t.Errorf("Invalid header")
 		}
 	}
 }
