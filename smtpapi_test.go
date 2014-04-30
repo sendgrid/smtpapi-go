@@ -15,11 +15,20 @@ func TestNewSMTPIAPIHeader(t *testing.T) {
 	}
 }
 
-func TestAdd(t *testing.T) {
+func TestAddTo(t *testing.T) {
 	headers := NewSMTPAPIHeader()
 	headers.AddTo(testEmail)
 	if len(headers.To) == 0 {
 		t.Errorf("AddTo Failed - %v", headers.To)
+	}
+}
+
+func TestAddTos(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	tos := []string{testEmail, testEmail}
+	headers.AddTos(tos)
+	if len(headers.To) == 0 {
+		t.Errorf("AddTos Failed - %v", headers.To)
 	}
 }
 
