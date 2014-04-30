@@ -6,7 +6,9 @@ This is a simple library to simplify the process of using [SendGrid's](https://s
 
 ## Examples
 
-### [AddSubstitution](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
+### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
+
+## AddSubstitution
 
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
@@ -14,7 +16,7 @@ header := smtpapi.NewSMTPAPIHeader()
 header.AddSubstitution("key", "value")
 ```
 
-### SetSubstitutions
+## SetSubstitutions
 
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
@@ -27,13 +29,15 @@ header.SetSubstitutions(sub)
 
 ### [Section](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
 
+## AddSection
+
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
 
 header.AddSection("section", "value")
 ```
 
-### SetSections
+## SetSections
 
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
@@ -46,13 +50,15 @@ header.SetSections(sections)
 
 ### [Category](http://sendgrid.com/docs/Delivery_Metrics/categories.html)
 
+## AddCategory
+
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
 
 header.AddCategory("category")
 ```
 
-### SetCategories
+## SetCategories
 
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
@@ -62,13 +68,15 @@ header.SetCategories([]string{"setCategories"})
 
 ### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
 
+## AddUniqueArg
+
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
 
 header.AddUniqueArg("key", "value")
 ```
 
-### SetUniqueArgs
+## SetUniqueArgs
 
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
@@ -79,7 +87,9 @@ args["set_unique_argument_key"] = "set_unique_argument_value"
 header.SetUniqueArgs(args)
 ```
 
-### [Filter](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
+### [Filters](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
+
+## AddFilter
 
 ```Go
 header := smtpapi.NewSMTPAPIHeader()
@@ -87,7 +97,7 @@ header := smtpapi.NewSMTPAPIHeader()
 header.AddFilter("filter", "setting", "value")
 ```
 
-### JsonString
+## JSONString
 
 ```Go
 header.JSONString() //returns a JSON string representation of the headers
