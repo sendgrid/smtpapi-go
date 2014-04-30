@@ -67,6 +67,24 @@ func TestSetSubstitutions(t *testing.T) {
 	}
 }
 
+func TestAddSection(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	headers.AddSection("section", "value")
+	if len(headers.Section) == 0 {
+		t.Errorf("AddSection Failed - %v", headers.Section)
+	}
+}
+
+func TestSetSections(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	section := make(map[string]string)
+	section["section"] = "val"
+	headers.SetSections(section)
+	if len(headers.Section) == 0 {
+		t.Errorf("SetSections Failed - %v", headers.Section)
+	}
+}
+
 func Test_Adds(t *testing.T) {
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
 	headers := NewSMTPAPIHeader()
