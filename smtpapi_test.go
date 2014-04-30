@@ -115,8 +115,8 @@ func TestSetCategories(t *testing.T) {
 func TestAddUniqueArgs(t *testing.T) {
 	headers := NewSMTPAPIHeader()
 	headers.AddUniqueArg("arg", "value")
-	if len(headers.Unique_args) == 0 {
-		t.Errorf("AddUniqueArg Failed - %v", headers.Unique_args)
+	if len(headers.UniqueArgs) == 0 {
+		t.Errorf("AddUniqueArg Failed - %v", headers.UniqueArgs)
 	}
 }
 
@@ -125,12 +125,32 @@ func TestSetUniqueArgs(t *testing.T) {
 	args := make(map[string]string)
 	args["arg"] = "val"
 	headers.SetUniqueArgs(args)
-	if len(headers.Unique_args) == 0 {
-		t.Errorf("SetUniqueArgs Failed - %v", headers.Unique_args)
+	if len(headers.UniqueArgs) == 0 {
+		t.Errorf("SetUniqueArgs Failed - %v", headers.UniqueArgs)
 	}
 }
 
-func Test_Adds(t *testing.T) {
+func TestAddFilter(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	headers.AddFilter("filter", "setting", "value")
+	if len(headers.Filters) == 0 {
+		t.Errorf("AddFilter Failed - %v", headers.Filters)
+	}
+}
+
+func TestSetFilter(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	filter := &Filter{
+		Settings: make(map[string]string),
+	}
+	filter.Settings["setting"] = "value"
+	headers.SetFilter("filter", filter)
+	if len(headers.Filters) == 0 {
+		t.Errorf("SetFilter Failed - %v", headers.Filters)
+	}
+}
+
+func TestJSONStringWithAdds(t *testing.T) {
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
 	headers := NewSMTPAPIHeader()
 	headers.AddTo("test@email.com")
@@ -139,7 +159,7 @@ func Test_Adds(t *testing.T) {
 	headers.AddCategory("testCategory")
 	headers.AddUniqueArg("testUnique", "uniqueValue")
 	headers.AddFilter("testFilter", "filter", "filterValue")
-	if h, e := headers.JsonString(); e != nil {
+	if h, e := headers.JSONString(); e != nil {
 		t.Errorf("Error! %s", e)
 	} else {
 		testHeader, _ := json.Marshal([]byte(h))
@@ -151,7 +171,7 @@ func Test_Adds(t *testing.T) {
 	}
 }
 
-func Test_Sets(t *testing.T) {
+func TestJSONStringWithSets(t *testing.T) {
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
 	headers := NewSMTPAPIHeader()
 	headers.SetTos([]string{"test@email.com"})
@@ -166,7 +186,7 @@ func Test_Sets(t *testing.T) {
 	unique["testUnique"] = "uniqueValue"
 	headers.SetUniqueArgs(unique)
 	headers.AddFilter("testFilter", "filter", "filterValue")
-	if h, e := headers.JsonString(); e != nil {
+	if h, e := headers.JSONString(); e != nil {
 		t.Errorf("Error! %s", e)
 	} else {
 		testHeader, _ := json.Marshal([]byte(h))
