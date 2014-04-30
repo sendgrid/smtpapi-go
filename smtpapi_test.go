@@ -45,6 +45,14 @@ func TestAddSubstitution(t *testing.T) {
 	headers := NewSMTPAPIHeader()
 	headers.AddSubstitution("sub", "val")
 	if len(headers.Sub) == 0 {
+		t.Errorf("AddSubstitution Failed - %v", headers.Sub)
+	}
+}
+
+func TestAddSubstitutions(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	headers.AddSubstitutions("sub", []string{"val", "val2"})
+	if len(headers.Sub) == 0 && len(headers.Sub["sub"]) != 2 {
 		t.Errorf("AddSubstitutions Failed - %v", headers.Sub)
 	}
 }
