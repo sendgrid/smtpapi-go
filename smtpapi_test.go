@@ -8,6 +8,13 @@ import (
 
 var testEmail = "email@email.com"
 
+func TestNewSMTPIAPIHeader(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	if headers == nil {
+		t.Error("NewSMTPAPIHeader() should never return nil")
+	}
+}
+
 func TestAdd(t *testing.T) {
 	headers := NewSMTPAPIHeader()
 	headers.AddTo(testEmail)
