@@ -7,16 +7,20 @@ import (
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
 type SMTPAPIHeader struct {
-	To          []string                                `json:"to,omitempty"`
-	Sub         map[string][]string                     `json:"sub,omitempty"`
-	Section     map[string]string                       `json:"section,omitempty"`
-	Category    []string                                `json:"category,omitempty"`
-	Unique_args map[string]string                       `json:"unique_args,omitempty"`
-	Filters     map[string]map[string]map[string]string `json:"filters,omitempty"`
+	To          []string            `json:"to,omitempty"`
+	Sub         map[string][]string `json:"sub,omitempty"`
+	Section     map[string]string   `json:"section,omitempty"`
+	Category    []string            `json:"category,omitempty"`
+	Unique_args map[string]string   `json:"unique_args,omitempty"`
+	Filters     map[string]Filter   `json:"filters,omitempty"`
 }
 
-func NewSMTPAPIHeader() SMTPAPIHeader {
-	return SMTPAPIHeader{}
+type Filter struct {
+	Settings map[string]string `json:"settings,omitempty"`
+}
+
+func NewSMTPAPIHeader() *SMTPAPIHeader {
+	return &SMTPAPIHeader{}
 }
 
 func (h *SMTPAPIHeader) AddTo(email string) {
