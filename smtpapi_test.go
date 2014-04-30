@@ -32,6 +32,15 @@ func TestAddTos(t *testing.T) {
 	}
 }
 
+func TestSetTos(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	tos := []string{testEmail, testEmail}
+	headers.SetTos(tos)
+	if len(headers.To) == 0 {
+		t.Errorf("SetTos Failed - %v", headers.To)
+	}
+}
+
 func Test_Adds(t *testing.T) {
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
 	headers := NewSMTPAPIHeader()
