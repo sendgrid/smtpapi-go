@@ -6,6 +6,16 @@ import (
 	"testing"
 )
 
+var testEmail = "email@email.com"
+
+func TestAdd(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	headers.AddTo(testEmail)
+	if len(headers.To) == 0 {
+		t.Errorf("AddTo Failed - %v", headers.To)
+	}
+}
+
 func Test_Adds(t *testing.T) {
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
 	headers := NewSMTPAPIHeader()
