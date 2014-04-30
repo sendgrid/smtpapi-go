@@ -2,7 +2,6 @@ package smtpapi
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
@@ -27,6 +26,12 @@ func (h *SMTPAPIHeader) AddTo(email string) {
 	h.To = append(h.To, email)
 }
 
+func (h *SMTPAPIHeader) AddTos(emails []string) {
+	for i := 0; i < len(emails); i++ {
+		h.AddTo(emails[i])
+	}
+}
+
 func (h *SMTPAPIHeader) SetTos(emails []string) {
 	h.To = emails
 }
@@ -38,13 +43,14 @@ func (h *SMTPAPIHeader) AddSubstitution(key, sub string) {
 	h.Sub[key] = append(h.Sub[key], sub)
 }
 
-func (h *SMTPAPIHeader) SetSubstitutions(sub interface{}) error {
-	var e bool
-	if h.Sub, e = sub.(map[string][]string); e {
-		return fmt.Errorf("smtpapi.go error: SetSubstitutions failed")
-	} else {
-		return nil
+func (h *SMTPAPIHeader) AddSubstitutions(key string, subs []string) {
+	for i := 0; i < len(subs); i++ {
+		h.AddSubstitution(key, subs[i])
 	}
+}
+
+func (h *SMTPAPIHeader) SetSubstitutions(sub map[string][]string) {
+	h.Sub = sub
 }
 
 func (h *SMTPAPIHeader) AddSection(section, value string) {
@@ -54,26 +60,22 @@ func (h *SMTPAPIHeader) AddSection(section, value string) {
 	h.Section[section] = value
 }
 
-func (h *SMTPAPIHeader) SetSections(sections interface{}) error {
-	var e bool
-	if h.Section, e = sections.(map[string]string); e {
-		return fmt.Errorf("smtpapi.go error: SetSections failed")
-	} else {
-		return nil
+func (h *SMTPAPIHeader) SetSections(sections map[string]string) {
+	h.Section = sections
+}
+
+func (h *SMTPAPIHeader) AddCategory(category string) {
+	h.Category = append(h.Category, category)
+}
+
+func (h *SMTPAPIHeader) AddCategories(categories []string) {
+	for i := 0; i < len(categories); i++ {
+		h.AddCategory(categories[i])
 	}
 }
 
-func (h *SMTPAPIHeader) AddCategory(value string) {
-	h.Category = append(h.Category, value)
-}
-
-func (h *SMTPAPIHeader) SetCategories(categories interface{}) error {
-	var e bool
-	if h.Category, e = categories.([]string); e {
-		return fmt.Errorf("smtpapi.go ")
-	} else {
-		return nil
-	}
+func (h *SMTPAPIHeader) SetCategories(categories []string) {
+	h.Category = categories
 }
 
 func (h *SMTPAPIHeader) AddUniqueArg(arg, value string) {
@@ -83,26 +85,27 @@ func (h *SMTPAPIHeader) AddUniqueArg(arg, value string) {
 	h.Unique_args[arg] = value
 }
 
-func (h *SMTPAPIHeader) SetUniqueArgs(unique interface{}) error {
-	var e bool
-	if h.Unique_args, e = unique.(map[string]string); e {
-		return fmt.Errorf("smtpapi.go error: SetUniqueArgs failed")
-	} else {
-		return nil
-	}
+func (h *SMTPAPIHeader) SetUniqueArgs(args map[string]string) {
+	h.Unique_args = args
 }
 
 func (h *SMTPAPIHeader) AddFilter(filter, setting, value string) {
 	if h.Filters == nil {
-		h.Filters = make(map[string]map[string]map[string]string)
+		h.Filters = make(map[string]Filter)
 	}
-	if h.Filters[filter] == nil {
-		h.Filters[filter] = make(map[string]map[string]string)
+	if _, ok := h.Filters[filter]; !ok {
+		h.Filters[filter] = Filter{
+			Settings: make(map[string]string),
+		}
 	}
-	if h.Filters[filter]["settings"] == nil {
-		h.Filters[filter]["settings"] = make(map[string]string)
+	h.Filters[filter].Settings[setting] = value
+}
+
+func (h *SMTPAPIHeader) SetFilter(filter string, value *Filter) {
+	if h.Filters == nil {
+		h.Filters = make(map[string]Filter)
 	}
-	h.Filters[filter]["settings"][setting] = value
+	h.Filters[filter] = *value
 }
 
 func (h *SMTPAPIHeader) JsonString() (string, error) {
