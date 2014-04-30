@@ -7,6 +7,7 @@ import (
 )
 
 var testEmail = "email@email.com"
+var category = "category"
 
 func TestNewSMTPIAPIHeader(t *testing.T) {
 	headers := NewSMTPAPIHeader()
@@ -82,6 +83,32 @@ func TestSetSections(t *testing.T) {
 	headers.SetSections(section)
 	if len(headers.Section) == 0 {
 		t.Errorf("SetSections Failed - %v", headers.Section)
+	}
+}
+
+func TestAddCategory(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	headers.AddCategory(category)
+	if len(headers.Category) == 0 {
+		t.Errorf("AddCategory Failed - %v", headers.Category)
+	}
+}
+
+func TestAddCategories(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	categories := []string{category, category}
+	headers.AddCategories(categories)
+	if len(headers.Category) == 0 {
+		t.Errorf("AddCategories Failed - %v", headers.Category)
+	}
+}
+
+func TestSetCategories(t *testing.T) {
+	headers := NewSMTPAPIHeader()
+	categories := []string{category, category}
+	headers.SetCategories(categories)
+	if len(headers.Category) == 0 {
+		t.Errorf("SetCategories Failed - %v", headers.Category)
 	}
 }
 
