@@ -6,104 +6,86 @@ This is a simple library to simplify the process of using [SendGrid's](https://s
 
 ## Examples
 
-### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
+### New Header
 
-## AddSubstitution
-
-```Go
+```go
 header := smtpapi.NewSMTPAPIHeader()
-
-header.AddSubstitution("key", "value")
 ```
 
-## SetSubstitutions
+### Recipients
 
-```Go
-header := smtpapi.NewSMTPAPIHeader()
+```go
+header.AddTo("addTo@mailinator.com")
+// or
+tos := []string{"test@test.com", "test@email.com"}
+header.AddTos(tos)
+// or
+header.SetTos(tos)
+```
 
+### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
+
+```go
+header.AddSubstitution("key", "value")
+// or
+values := []string{"value1", "value2"}
+header.AddSubstitutions("key", values)
+//or
 sub := make(map[string][]string)
-sub["sub"] = []string{"val"}
-
+sub["key"] = values
 header.SetSubstitutions(sub)
 ```
 
 ### [Section](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
 
-## AddSection
-
-```Go
-header := smtpapi.NewSMTPAPIHeader()
-
+```go
 header.AddSection("section", "value")
-```
-
-## SetSections
-
-```Go
-header := smtpapi.NewSMTPAPIHeader()
-
+// or
 sections := make(map[string]string)
-sections["set_section_key"] = "set_section_value"
-
+sections["section"] = "value"
 header.SetSections(sections)
 ```
 
 ### [Category](http://sendgrid.com/docs/Delivery_Metrics/categories.html)
 
-## AddCategory
-
-```Go
-header := smtpapi.NewSMTPAPIHeader()
-
+```go
 header.AddCategory("category")
-```
-
-## SetCategories
-
-```Go
-header := smtpapi.NewSMTPAPIHeader()
-
-header.SetCategories([]string{"setCategories"})
+// or
+categories := []string{"setCategories"}
+header.AddCategories(categories)
+// or
+header.SetCategories(categories)
 ```
 
 ### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
 
-## AddUniqueArg
-
-```Go
-header := smtpapi.NewSMTPAPIHeader()
-
+```go
 header.AddUniqueArg("key", "value")
-```
-
-## SetUniqueArgs
-
-```Go
-header := smtpapi.NewSMTPAPIHeader()
-
+// or
 args := make(map[string]string)
-args["set_unique_argument_key"] = "set_unique_argument_value"
-
+args["key"] = "value"
 header.SetUniqueArgs(args)
 ```
 
 ### [Filters](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
 
-## AddFilter
-
-```Go
-header := smtpapi.NewSMTPAPIHeader()
-
+```go
 header.AddFilter("filter", "setting", "value")
+// or
+filter := &Filter{
+  Settings: make(map[string]string),
+}
+filter.Settings["enable"] = "1"
+filter.Settings["text/plain"] = "You can haz footers!"
+header.SetFilter("footer", filter)
+
 ```
 
-## JSONString
+### JSONString
 
-```Go
+```go
 header.JSONString() //returns a JSON string representation of the headers
 ```
-
-## MIT License
 
 ## Contributing
 
@@ -118,3 +100,5 @@ header.JSONString() //returns a JSON string representation of the headers
 ````bash
 go test -v
 ```
+
+## MIT License
