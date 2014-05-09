@@ -110,6 +110,16 @@ func TestAddCategory(t *testing.T) {
 	}
 }
 
+func TestAddCategoryUnicode(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	header.AddCategory("カテゴリUnicode")
+	header.AddCategory("カテゴリ2Unicode")
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_category_unicode"] {
+		t.Errorf("Result did not match")
+	}
+}
+
 func TestAddCategories(t *testing.T) {
 	header := NewSMTPAPIHeader()
 	categories := []string{"addCategory", "addCategory2"}
