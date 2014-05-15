@@ -2,6 +2,8 @@ package smtpapi
 
 import (
 	"encoding/json"
+	"fmt"
+	"bytes"
 )
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
@@ -125,8 +127,28 @@ func (h *SMTPAPIHeader) SetFilter(filter string, value *Filter) {
 	h.Filters[filter] = *value
 }
 
+// Unicode escape
+func escapeUnicode(input string) string {
+	//var buffer bytes.Buffer
+	buffer := bytes.NewBufferString("")
+	for _, r := range input {
+		if r > 127 {
+			var s = fmt.Sprintf("\\u%x", r)
+			//fmt.Printf("%s", s)
+			buffer.WriteString(s)
+		} else {
+			var s = fmt.Sprintf("%c", r)
+			//fmt.Printf("%s", s)
+			buffer.WriteString(s)
+		}
+	}
+	return buffer.String()
+}
+
 // JSONString returns the representation of the Header
 func (h *SMTPAPIHeader) JSONString() (string, error) {
 	headers, e := json.Marshal(h)
-	return string(headers), e
+	return escapeUnicode(string(headers)), e
 }
+
+
