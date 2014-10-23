@@ -12,5 +12,6 @@
   "add_section": "{\"section\":{\"set_section_key\":\"set_section_value\",\"set_section_key_2\":\"set_section_value_2\"}}",
   "set_sections": "{\"section\":{\"set_section_key\":\"set_section_value\"}}",
   "add_filter": "{\"filters\":{\"footer\":{\"settings\":{\"text/html\":\"<strong>boo</strong>\"}}}}",
-  "set_filters": "{\"filters\":{\"footer\":{\"settings\":{\"enable\":\"1\",\"text/plain\":\"You can haz footers!\"}}}}"
+  "set_filters": "{\"filters\":{\"footer\":{\"settings\":{\"enable\":\"1\",\"text/plain\":\"You can haz footers!\"}}}}",
+  "set_asm_group_id": "{\"asm_group_id\":1}"
 }

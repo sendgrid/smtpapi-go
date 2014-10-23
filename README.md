@@ -81,6 +81,13 @@ header.SetFilter("footer", filter)
 
 ```
 
+### [ASM Group ID](https://sendgrid.com/docs/User_Guide/advanced_suppression_manager.html)
+
+```go
+asmGroupID := 1
+header.SetASMGroupID(asmGroupID)
+```
+
 ### JSONString
 
 ```go

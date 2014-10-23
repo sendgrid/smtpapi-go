@@ -182,6 +182,15 @@ func TestSetFilter(t *testing.T) {
 	}
 }
 
+func TestSetASMGroupID(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	header.SetASMGroupID(1)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_asm_group_id"] {
+		t.Errorf("Result did not match")
+	}
+}
+
 func TestJSONString(t *testing.T) {
 	header := NewSMTPAPIHeader()
 	result, _ := header.JSONString()
@@ -212,7 +221,7 @@ func TestJSONStringWithAdds(t *testing.T) {
 }
 
 func TestJSONStringWithSets(t *testing.T) {
-	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
+	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}},"asm_group_id":1}`))
 	header := NewSMTPAPIHeader()
 	header.SetTos([]string{"test@email.com"})
 	sub := make(map[string][]string)
@@ -226,6 +235,7 @@ func TestJSONStringWithSets(t *testing.T) {
 	unique["testUnique"] = "uniqueValue"
 	header.SetUniqueArgs(unique)
 	header.AddFilter("testFilter", "filter", "filterValue")
+	header.SetASMGroupID(1)
 	if h, e := header.JSONString(); e != nil {
 		t.Errorf("Error! %s", e)
 	} else {
