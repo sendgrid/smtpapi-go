@@ -1,9 +1,9 @@
 package smtpapi
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
-	"bytes"
 )
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
@@ -14,6 +14,7 @@ type SMTPAPIHeader struct {
 	Category   []string            `json:"category,omitempty"`
 	UniqueArgs map[string]string   `json:"unique_args,omitempty"`
 	Filters    map[string]Filter   `json:"filters,omitempty"`
+	ASMGroupID int                 `json:"asm_group_id,omitempty"`
 }
 
 // Filter represents an App/Filter and its settings
@@ -93,6 +94,11 @@ func (h *SMTPAPIHeader) SetCategories(categories []string) {
 	h.Category = categories
 }
 
+// SetASMGroupID will set the value of the ASMGroupID field
+func (h *SMTPAPIHeader) SetASMGroupID(groupID int) {
+	h.ASMGroupID = groupID
+}
+
 // AddUniqueArg will set the value of a specific argument
 func (h *SMTPAPIHeader) AddUniqueArg(arg, value string) {
 	if h.UniqueArgs == nil {
@@ -150,5 +156,3 @@ func (h *SMTPAPIHeader) JSONString() (string, error) {
 	headers, e := json.Marshal(h)
 	return escapeUnicode(string(headers)), e
 }
-
-
