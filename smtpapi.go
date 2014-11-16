@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"unicode/utf16"
 )
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
@@ -138,7 +139,13 @@ func escapeUnicode(input string) string {
 	//var buffer bytes.Buffer
 	buffer := bytes.NewBufferString("")
 	for _, r := range input {
-		if r > 127 {
+		if r > 65535 {
+			// surrogate pair
+			var r1, r2 = utf16.EncodeRune(r)
+			var s = fmt.Sprintf("\\u%x\\u%x", r1, r2)
+			//fmt.Printf("%s", s);
+			buffer.WriteString(s)
+		} else if r > 127 {
 			var s = fmt.Sprintf("\\u%x", r)
 			//fmt.Printf("%s", s)
 			buffer.WriteString(s)

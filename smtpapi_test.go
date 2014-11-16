@@ -114,6 +114,7 @@ func TestAddCategoryUnicode(t *testing.T) {
 	header := NewSMTPAPIHeader()
 	header.AddCategory("カテゴリUnicode")
 	header.AddCategory("カテゴリ2Unicode")
+	header.AddCategory("鼖")
 	result, _ := header.JSONString()
 	if result != ExampleJson()["add_category_unicode"] {
 		t.Errorf("Result did not match")
