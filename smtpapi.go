@@ -139,7 +139,7 @@ func escapeUnicode(input string) string {
 	buffer := bytes.NewBufferString("")
 	for _, r := range input {
 		if r > 127 {
-			var s = fmt.Sprintf("\\u%x", r)
+			var s = fmt.Sprintf("\\u04%x", r)
 			//fmt.Printf("%s", s)
 			buffer.WriteString(s)
 		} else {
