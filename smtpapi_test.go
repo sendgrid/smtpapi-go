@@ -2,7 +2,6 @@ package smtpapi
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"reflect"
 	"testing"
@@ -120,7 +119,6 @@ func TestAddCategoryUnicode(t *testing.T) {
 	if result != ExampleJson()["add_category_unicode"] {
 		t.Errorf("Result did not match")
 	}
-	fmt.Println(result)
 }
 
 func TestAddCategories(t *testing.T) {
