@@ -2,6 +2,7 @@ package smtpapi
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"reflect"
 	"testing"
@@ -114,10 +115,12 @@ func TestAddCategoryUnicode(t *testing.T) {
 	header := NewSMTPAPIHeader()
 	header.AddCategory("カテゴリUnicode")
 	header.AddCategory("カテゴリ2Unicode")
+	header.AddCategory("鼖")
 	result, _ := header.JSONString()
 	if result != ExampleJson()["add_category_unicode"] {
 		t.Errorf("Result did not match")
 	}
+	fmt.Println(result)
 }
 
 func TestAddCategories(t *testing.T) {
