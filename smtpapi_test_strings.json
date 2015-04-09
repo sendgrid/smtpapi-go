@@ -13,5 +13,8 @@
   "set_sections": "{\"section\":{\"set_section_key\":\"set_section_value\"}}",
   "add_filter": "{\"filters\":{\"footer\":{\"settings\":{\"text/html\":\"<strong>boo</strong>\"}}}}",
   "set_filters": "{\"filters\":{\"footer\":{\"settings\":{\"enable\":\"1\",\"text/plain\":\"You can haz footers!\"}}}}",
+  "set_send_at": "{\"send_at\":1428611024}",
+  "add_send_each_at": "{\"send_each_at\":[1428611024,1428611025]}",
+  "set_send_each_at": "{\"send_each_at\":[1428611024,1428611025]}",
   "set_asm_group_id": "{\"asm_group_id\":1}"
 }

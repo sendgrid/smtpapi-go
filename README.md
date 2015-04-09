@@ -81,6 +81,18 @@ header.SetFilter("footer", filter)
 
 ```
 
+### [Send At](https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html)
+
+```go
+header.SetSendAt(1428611024)
+// or
+sendEachAt := []int64{1428611024, 1428611025}
+header.SetSendEachAt(sendEachAt)
+// or
+header.AddSendEachAt(1428611024)
+header.AddSendEachAt(1428611025)
+```
+
 ### [ASM Group ID](https://sendgrid.com/docs/User_Guide/advanced_suppression_manager.html)
 
 ```go

@@ -183,6 +183,35 @@ func TestSetFilter(t *testing.T) {
 	}
 }
 
+func TestSetSendAt(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	header.SetSendAt(1428611024)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_send_at"] {
+		t.Errorf("Result did not match")
+	}
+}
+
+func TestAddSendEachAt(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	header.AddSendEachAt(1428611024)
+	header.AddSendEachAt(1428611025)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["add_send_each_at"] {
+		t.Errorf("Result did not match")
+	}
+}
+
+func TestSetSendEachAt(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	sendEachAt := []int64{1428611024, 1428611025}
+	header.SetSendEachAt(sendEachAt)
+	result, _ := header.JSONString()
+	if result != ExampleJson()["set_send_each_at"] {
+		t.Errorf("Result did not match")
+	}
+}
+
 func TestSetASMGroupID(t *testing.T) {
 	header := NewSMTPAPIHeader()
 	header.SetASMGroupID(1)
