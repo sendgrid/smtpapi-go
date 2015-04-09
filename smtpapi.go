@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"time"
 	"unicode/utf16"
 )
 
@@ -16,6 +17,7 @@ type SMTPAPIHeader struct {
 	UniqueArgs map[string]string   `json:"unique_args,omitempty"`
 	Filters    map[string]Filter   `json:"filters,omitempty"`
 	ASMGroupID int                 `json:"asm_group_id,omitempty"`
+	SendAt     int64               `json:"send_at,omitempty"`
 }
 
 // Filter represents an App/Filter and its settings
@@ -132,6 +134,11 @@ func (h *SMTPAPIHeader) SetFilter(filter string, value *Filter) {
 		h.Filters = make(map[string]Filter)
 	}
 	h.Filters[filter] = *value
+}
+
+// SetSendAt takes in a time which determines when SendGrid should schedule this email
+func (h *SMTPAPIHeader) SetSendAtTime(sendAt time.Time) {
+	h.SendAt = sendAt.Unix()
 }
 
 // Unicode escape
