@@ -7,3 +7,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Scheduling Parameters
 - CHANGELOG
 
+## [0.3.1] - 2015-7-14
+### Added
+- IP Pools
