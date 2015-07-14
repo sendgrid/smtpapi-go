@@ -100,6 +100,12 @@ asmGroupID := 1
 header.SetASMGroupID(asmGroupID)
 ```
 
+### [IP Pools](https://sendgrid.com/docs/API_Reference/Web_API_v3/IP_Management/ip_pools.html)
+
+```go
+header.SetIpPool("testPool")
+```
+
 ### JSONString
 
 ```go
