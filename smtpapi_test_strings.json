@@ -16,5 +16,6 @@
   "set_send_at": "{\"send_at\":1428611024}",
   "add_send_each_at": "{\"send_each_at\":[1428611024,1428611025]}",
   "set_send_each_at": "{\"send_each_at\":[1428611024,1428611025]}",
-  "set_asm_group_id": "{\"asm_group_id\":1}"
+  "set_asm_group_id": "{\"asm_group_id\":1}",
+  "set_ip_pool": "{\"ip_pool\":\"testPool\"}"
 }

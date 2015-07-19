@@ -18,6 +18,7 @@ type SMTPAPIHeader struct {
 	ASMGroupID int                 `json:"asm_group_id,omitempty"`
 	SendAt     int64               `json:"send_at,omitempty"`
 	SendEachAt []int64             `json:"send_each_at,omitempty"`
+	IpPool     string 			   `json:"ip_pool,omitempty"`
 }
 
 // Filter represents an App/Filter and its settings
@@ -149,6 +150,11 @@ func (h *SMTPAPIHeader) AddSendEachAt(sendEachAt int64) {
 // SetSendEachAt takes an array of timestamps. Must match length of To emails
 func (h *SMTPAPIHeader) SetSendEachAt(sendEachAt []int64) {
 	h.SendEachAt = sendEachAt
+}
+
+// SetIpPool takes a strings and sets the IpPool field
+func (h *SMTPAPIHeader) SetIpPool(ipPool string) {
+	h.IpPool = ipPool
 }
 
 // Unicode escape
