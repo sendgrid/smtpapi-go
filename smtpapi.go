@@ -7,6 +7,8 @@ import (
 	"unicode/utf16"
 )
 
+const Version = "0.4.0"
+
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
 type SMTPAPIHeader struct {
 	To         []string            `json:"to,omitempty"`
@@ -18,7 +20,7 @@ type SMTPAPIHeader struct {
 	ASMGroupID int                 `json:"asm_group_id,omitempty"`
 	SendAt     int64               `json:"send_at,omitempty"`
 	SendEachAt []int64             `json:"send_each_at,omitempty"`
-	IpPool     string 			   `json:"ip_pool,omitempty"`
+	IpPool     string              `json:"ip_pool,omitempty"`
 }
 
 // Filter represents an App/Filter and its settings
