@@ -21,7 +21,7 @@ type SMTPAPIHeader struct {
 	SendAt     int64               `json:"send_at,omitempty"`
 	SendEachAt []int64             `json:"send_each_at,omitempty"`
 	IpPool     string              `json:"ip_pool,omitempty"`
-	BatchID    string              `json:"batch_id"`
+	BatchID    string              `json:"batch_id,omitempty"`
 }
 
 // Filter represents an App/Filter and its settings
