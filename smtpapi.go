@@ -185,3 +185,8 @@ func (h *SMTPAPIHeader) JSONString() (string, error) {
 	headers, e := json.Marshal(h)
 	return escapeUnicode(string(headers)), e
 }
+
+// Load allows you to load a pre-formed x-smtpapi header
+func (h *SMTPAPIHeader) Load(b []byte) error {
+	return json.Unmarshal(b, h)
+}
