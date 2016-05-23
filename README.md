@@ -1,129 +1,60 @@
-# SMTP-API
+[![BuildStatus](https://travis-ci.org/sendgrid/smtpapi-go.svg?branch=master)](https://travis-ci.org/sendgrid/smtpapi-go)://travis-ci.org/sendgrid/sendgrid-python)
 
-This is a simple library to simplify the process of using [SendGrid's](https://sendgrid.com) [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html).
 
-[![BuildStatus](https://travis-ci.org/sendgrid/smtpapi-go.svg?branch=master)](https://travis-ci.org/sendgrid/smtpapi-go)
+**This is a simple library to simplify the process of using [SendGrid's](https://sendgrid.com) [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html).**
 
-## Examples
+# Announcements
 
-### New Header
+All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-go/blob/master/CHANGELOG.md).
 
-```go
-header := smtpapi.NewSMTPAPIHeader()
+# Installation
+
+```bash
+go get github.com/sendgrid/smtpapi/go
 ```
 
-### Recipients
+# Quick Start
 
 ```go
-header.AddTo("addTo@mailinator.com")
-// or
-tos := []string{"test@test.com", "test@email.com"}
-header.AddTos(tos)
-// or
-header.SetTos(tos)
-```
+package main
 
-### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
+import (
+  "github.com/sendgrid/smtpapi-go"
+  "fmt"
+)
 
-```go
-header.AddSubstitution("key", "value")
-// or
-values := []string{"value1", "value2"}
-header.AddSubstitutions("key", values)
-//or
-sub := make(map[string][]string)
-sub["key"] = values
-header.SetSubstitutions(sub)
-```
-
-### [Section](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
-
-```go
-header.AddSection("section", "value")
-// or
-sections := make(map[string]string)
-sections["section"] = "value"
-header.SetSections(sections)
-```
-
-### [Category](http://sendgrid.com/docs/Delivery_Metrics/categories.html)
-
-```go
-header.AddCategory("category")
-// or
-categories := []string{"setCategories"}
-header.AddCategories(categories)
-// or
-header.SetCategories(categories)
-```
-
-### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
-
-```go
-header.AddUniqueArg("key", "value")
-// or
-args := make(map[string]string)
-args["key"] = "value"
-header.SetUniqueArgs(args)
-```
-
-### [Filters](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
-
-```go
-header.AddFilter("filter", "setting", "value")
-// or
-filter := &Filter{
-  Settings: make(map[string]string),
+func main() {
+  header := smtpapi.NewSMTPAPIHeader()
+  header.AddTo("test@example.com")
+  fmt.Println(header.JSONString())
 }
-filter.Settings["enable"] = "1"
-filter.Settings["text/plain"] = "You can haz footers!"
-header.SetFilter("footer", filter)
-
 ```
 
-### [Send At](https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html)
+# Usage
 
-```go
-header.SetSendAt(1428611024)
-// or
-sendEachAt := []int64{1428611024, 1428611025}
-header.SetSendEachAt(sendEachAt)
-// or
-header.AddSendEachAt(1428611024)
-header.AddSendEachAt(1428611025)
-```
+- [SendGrid Docs](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
+- [Example Code](https://github.com/sendgrid/smtpapi-go/tree/master/examples)
 
-### [ASM Group ID](https://sendgrid.com/docs/User_Guide/advanced_suppression_manager.html)
+## Roadmap
 
-```go
-asmGroupID := 1
-header.SetASMGroupID(asmGroupID)
-```
+If you are interested in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/smtpapi-go/milestones). We would love to hear your feedback.
 
-### [IP Pools](https://sendgrid.com/docs/API_Reference/Web_API_v3/IP_Management/ip_pools.html)
+## How to Contribute
 
-```go
-header.SetIpPool("testPool")
-```
+We encourage contribution to our libraries, please see our [CONTRIBUTING](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md) guide for details.
 
-### JSONString
+Quick links:
 
-```go
-header.JSONString() //returns a JSON string representation of the headers
-```
+- [Feature Request](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#feature_request)
+- [Bug Reports](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#submit_a_bug_report)
+- [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#cla)
+- [Improvements to the Codebase](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#improvements_to_the_codebase)
 
-## Contributing
+# About
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+smtpapi-go is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
 
-## Running Tests
+smtpapi-go is maintained and funded by SendGrid, Inc. The names and logos for smtpapi-go are trademarks of SendGrid, Inc.
 
-````bash
-go test -v
-```
-
-## MIT License
+![SendGrid Logo]
+(https://assets3.sendgrid.com/mkt/assets/logos_brands/small/sglogo_2015_blue-9c87423c2ff2ff393ebce1ab3bd018a4.png)
