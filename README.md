@@ -1,4 +1,4 @@
-[![BuildStatus](https://travis-ci.org/sendgrid/smtpapi-go.svg?branch=master)](https://travis-ci.org/sendgrid/smtpapi-go)://travis-ci.org/sendgrid/sendgrid-python)
+[![BuildStatus](https://travis-ci.org/sendgrid/smtpapi-go.svg?branch=master)](https://travis-ci.org/sendgrid/smtpapi-go)
 
 
 **This is a simple library to simplify the process of using [SendGrid's](https://sendgrid.com) [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html).**
@@ -57,4 +57,4 @@ smtpapi-go is guided and supported by the SendGrid [Developer Experience Team](m
 smtpapi-go is maintained and funded by SendGrid, Inc. The names and logos for smtpapi-go are trademarks of SendGrid, Inc.
 
 ![SendGrid Logo]
-(https://assets3.sendgrid.com/mkt/assets/logos_brands/small/sglogo_2015_blue-9c87423c2ff2ff393ebce1ab3bd018a4.png)
+(https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
