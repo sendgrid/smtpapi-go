@@ -4,10 +4,10 @@ go:
 notifications:
   hipchat:
     rooms:
-      secure: BQ4e1gjw1iYECyuvQ6HVU6Wm3Awh8d03Gt5eXa1Eyy54XXH3yxuNdtrW1Eh7yvpux/g9PxBZBAThTC/tE0abETpKOytRp3lp9bb6lIjRB02wOJ5nUAfZpNteyRIlSsLajBpDsGmaHKpxhBjyGl17kJJ/LH4j7UVy1P872QML4LE=
+      secure: Tk19TNeLNQKRCGC5NKFEqCQTJsEJNrfZ56iuiA5iavIYVoTsX6Pi9VxvzYOeXNNuuHEF9yC3bnv9+yjNaBps7S+T/EiT1F7Qx4BIVgmETK+qg82XmFz5p8lWn7GmSZVWu2kBVlVMbtEdsYPbR19v1LvzSw2U9SO7j7CssWVyAmY=
     template:
     - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
       Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
-      <a href="https://github.com/sendgrid/docs/commits/%{commit}">View on GitHub</a>'
+      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
     format: html
 
