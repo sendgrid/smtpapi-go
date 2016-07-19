@@ -64,7 +64,7 @@ We welcome direct contributions to the smtpapi-go code base. Thank you!
 
 ##### Prerequisites #####
 
-- Go 1.3 through 1.5
+- Go 1.6
 
 ##### Initial setup: #####
 

@@ -9,6 +9,13 @@ All updates to this library is documented in our [CHANGELOG](https://github.com/
 
 # Installation
 
+## Prerequisites
+
+- Go version 1.6
+- The SendGrid service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-go)
+
+## Install Package
+
 ```bash
 go get github.com/sendgrid/smtpapi/go
 ```
