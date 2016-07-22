@@ -17,7 +17,7 @@ All updates to this library is documented in our [CHANGELOG](https://github.com/
 ## Install Package
 
 ```bash
-go get github.com/sendgrid/smtpapi/go
+go get github.com/sendgrid/smtpapi-go
 ```
 
 # Quick Start
