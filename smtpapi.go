@@ -26,7 +26,7 @@ type SMTPAPIHeader struct {
 
 // Filter represents an App/Filter and its settings
 type Filter struct {
-	Settings map[string]string `json:"settings,omitempty"`
+	Settings map[string]interface{} `json:"settings,omitempty"`
 }
 
 // NewSMTPAPIHeader creates a new header struct
@@ -120,13 +120,13 @@ func (h *SMTPAPIHeader) SetUniqueArgs(args map[string]string) {
 }
 
 // AddFilter will set the specific setting for a filter
-func (h *SMTPAPIHeader) AddFilter(filter, setting, value string) {
+func (h *SMTPAPIHeader) AddFilter(filter, setting string, value interface{}) {
 	if h.Filters == nil {
 		h.Filters = make(map[string]Filter)
 	}
 	if _, ok := h.Filters[filter]; !ok {
 		h.Filters[filter] = Filter{
-			Settings: make(map[string]string),
+			Settings: make(map[string]interface{}),
 		}
 	}
 	h.Filters[filter].Settings[setting] = value
