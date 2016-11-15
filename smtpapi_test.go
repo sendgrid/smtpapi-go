@@ -178,9 +178,9 @@ func TestAddFilter(t *testing.T) {
 func TestSetFilter(t *testing.T) {
 	header := NewSMTPAPIHeader()
 	filter := &Filter{
-		Settings: make(map[string]string),
+		Settings: make(map[string]interface{}),
 	}
-	filter.Settings["enable"] = "1"
+	filter.Settings["enable"] = 1
 	filter.Settings["text/plain"] = "You can haz footers!"
 	header.SetFilter("footer", filter)
 	result, _ := header.JSONString()
