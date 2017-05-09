@@ -293,3 +293,31 @@ func TestJSONStringWithSets(t *testing.T) {
 		}
 	}
 }
+
+func TestMarshalUnmarshall(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	header.SetTos([]string{"test@email.com"})
+	sub := make(map[string][]string)
+	sub["subKey"] = []string{"subValue"}
+	header.SetSubstitutions(sub)
+	sections := make(map[string]string)
+	sections["testSection"] = "sectionValue"
+	header.SetSections(sections)
+	header.SetCategories([]string{"testCategory"})
+	unique := make(map[string]string)
+	unique["testUnique"] = "uniqueValue"
+	header.SetUniqueArgs(unique)
+	header.AddFilter("testFilter", "filter", "filterValue")
+	header.SetASMGroupID(1)
+	header.SetIpPool("testPool")
+
+	newHeader := NewSMTPAPIHeader()
+	b, err := header.JSONString()
+	if err != nil {
+		t.Errorf("Error in JSONString %v", err)
+	}
+	newHeader.Load([]byte(b))
+	if !reflect.DeepEqual(header, newHeader) {
+		t.Errorf("Expected %v, but got %v", header, newHeader)
+	}
+}
