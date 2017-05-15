@@ -1,6 +1,7 @@
 language: go
 go:
 - tip
+script: go test -cover -bench=. -v -race ./...
 notifications:
   hipchat:
     rooms:
