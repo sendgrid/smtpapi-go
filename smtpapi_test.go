@@ -16,7 +16,7 @@ func exampleJson() map[string]interface{} {
 }
 
 func TestSMTPAPIVersion(t *testing.T) {
-	if Version != "0.4.1" {
+	if Version != "0.4.2" {
 		t.Error("SMTPAPI version does not match")
 	}
 }

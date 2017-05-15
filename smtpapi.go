@@ -7,7 +7,7 @@ import (
 	"unicode/utf16"
 )
 
-const Version = "0.4.1"
+const Version = "0.4.2"
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
 type SMTPAPIHeader struct {
