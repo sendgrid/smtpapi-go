@@ -18,6 +18,7 @@ type SMTPAPIHeader struct {
 	UniqueArgs map[string]string   `json:"unique_args,omitempty"`
 	Filters    map[string]Filter   `json:"filters,omitempty"`
 	ASMGroupID int                 `json:"asm_group_id,omitempty"`
+	ASMGroups  []int               `json:"asm_groups_to_display,omitempty"`
 	SendAt     int64               `json:"send_at,omitempty"`
 	SendEachAt []int64             `json:"send_each_at,omitempty"`
 	IpPool     string              `json:"ip_pool,omitempty"`
@@ -104,6 +105,23 @@ func (h *SMTPAPIHeader) SetCategories(categories []string) {
 // SetASMGroupID will set the value of the ASMGroupID field
 func (h *SMTPAPIHeader) SetASMGroupID(groupID int) {
 	h.ASMGroupID = groupID
+}
+
+// AddASMGroupToDisplay adds a new ASM group ID to be displayed
+func (h *SMTPAPIHeader) AddASMGroupToDisplay(groupID int) {
+	h.ASMGroups = append(h.ASMGroups, groupID)
+}
+
+// AddASMGroupsToDisplay adds multiple ASM group IDs to be displayed
+func (h *SMTPAPIHeader) AddASMGroupsToDisplay(groupIDs []int) {
+	for i := 0; i < len(groupIDs); i++ {
+		h.AddASMGroupToDisplay(groupIDs[i])
+	}
+}
+
+// SetASMGroupsToDisplay will set the value of the ASMGroups field
+func (h *SMTPAPIHeader) SetASMGroupsToDisplay(groups []int) {
+	h.ASMGroups = groups
 }
 
 // AddUniqueArg will set the value of a specific argument
