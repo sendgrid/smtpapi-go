@@ -236,6 +236,24 @@ func TestSetIpPool(t *testing.T) {
 	}
 }
 
+func TestSAddASMGroupToDisplay(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	header.AddASMGroupToDisplay(671332)
+	result, _ := header.JSONString()
+	if result != exampleJson()["add_asm_group"] {
+		t.Errorf("Result did not match")
+	}
+}
+
+func TestSAddASMGroupsToDisplay(t *testing.T) {
+	header := NewSMTPAPIHeader()
+	header.AddASMGroupsToDisplay([]int{45, 23})
+	result, _ := header.JSONString()
+	if result != exampleJson()["add_asm_groups"] {
+		t.Errorf("Result did not match")
+	}
+}
+
 func TestJSONString(t *testing.T) {
 	header := NewSMTPAPIHeader()
 	result, _ := header.JSONString()
@@ -310,6 +328,7 @@ func TestMarshalUnmarshall(t *testing.T) {
 	header.AddFilter("testFilter", "filter", "filterValue")
 	header.SetASMGroupID(1)
 	header.SetIpPool("testPool")
+	header.SetASMGroupsToDisplay([]int{32, 12})
 
 	newHeader := NewSMTPAPIHeader()
 	b, err := header.JSONString()
