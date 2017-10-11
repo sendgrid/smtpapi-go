@@ -7,6 +7,7 @@ import (
 	"unicode/utf16"
 )
 
+// Version represents the current version of the smtpapi-go library
 const Version = "0.4.2"
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
