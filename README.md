@@ -5,6 +5,8 @@
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/php)](https://dx.sendgrid.com/newsletter/php)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-go.svg)](https://github.com/sendgrid/sendgrid-go/graphs/contributors)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sendgrid/smtpapi-go)](https://goreportcard.com/report/github.com/sendgrid/smtpapi-go)
+[![GoDoc](https://godoc.org/github.com/sendgrid/smtpapi-go?status.svg)](https://godoc.org/github.com/sendgrid/smtpapi-go)
 
 **This is a simple library to simplify the process of using [SendGrid's](https://sendgrid.com) [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html) with the Go programming language**
 
