@@ -7,6 +7,13 @@
 
 All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-go/blob/master/CHANGELOG.md).
 
+# Table of Contents
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Usage](#usage)
+- [About](#about)
+
+<a name="installation"></a>
 # Installation
 
 ## Prerequisites
@@ -19,7 +26,7 @@ All updates to this library is documented in our [CHANGELOG](https://github.com/
 ```bash
 go get github.com/sendgrid/smtpapi-go
 ```
-
+<a name="quick-start"></a>
 # Quick Start
 
 ```go
@@ -36,7 +43,7 @@ func main() {
   fmt.Println(header.JSONString())
 }
 ```
-
+<a name="usage"></a>
 # Usage
 
 - [SendGrid Docs](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
@@ -57,6 +64,7 @@ Quick links:
 - [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#cla)
 - [Improvements to the Codebase](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
 
+<a name="about"></a>
 # About
 
 smtpapi-go is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
