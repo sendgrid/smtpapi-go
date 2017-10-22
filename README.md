@@ -14,22 +14,16 @@
 
 * [Announcements](#announcements)
 * [Installation](#installation)
-* [Quick Start](#quick_start)
+* [Quick Start](#quick-start)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
-* [How to Contribute](#contribute)
+* [How to Contribute](#how-to-contribute)
 * [About](#about)
 * [License](#license)
 
 # Announcements
 
 All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-go/blob/master/CHANGELOG.md).
-
-# Table of Contents
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Usage](#usage)
-- [About](#about)
 
 <a name="installation"></a>
 # Installation
