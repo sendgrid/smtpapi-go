@@ -16,12 +16,14 @@ func exampleJson() map[string]interface{} {
 }
 
 func TestSMTPAPIVersion(t *testing.T) {
+	t.Parallel()
 	if Version != "0.4.2" {
 		t.Error("SMTPAPI version does not match")
 	}
 }
 
 func TestNewSMTPIAPIHeader(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	if header == nil {
 		t.Error("NewSMTPAPIHeader() should never return nil")
@@ -29,6 +31,7 @@ func TestNewSMTPIAPIHeader(t *testing.T) {
 }
 
 func TestAddTo(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddTo("addTo@mailinator.com")
 	result, _ := header.JSONString()
@@ -38,6 +41,7 @@ func TestAddTo(t *testing.T) {
 }
 
 func TestAddTos(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	tos := []string{"addTo@mailinator.com"}
 	header.AddTos(tos)
@@ -48,6 +52,7 @@ func TestAddTos(t *testing.T) {
 }
 
 func TestSetTos(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.SetTos([]string{"setTos@mailinator.com"})
 	result, _ := header.JSONString()
@@ -57,6 +62,7 @@ func TestSetTos(t *testing.T) {
 }
 
 func TestAddSubstitution(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddSubstitution("sub", "val")
 	result, _ := header.JSONString()
@@ -66,6 +72,7 @@ func TestAddSubstitution(t *testing.T) {
 }
 
 func TestAddSubstitutions(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddSubstitutions("sub", []string{"val"})
 	result, _ := header.JSONString()
@@ -75,6 +82,7 @@ func TestAddSubstitutions(t *testing.T) {
 }
 
 func TestSetSubstitutions(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	sub := make(map[string][]string)
 	sub["sub"] = []string{"val"}
@@ -86,6 +94,7 @@ func TestSetSubstitutions(t *testing.T) {
 }
 
 func TestAddSection(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddSection("set_section_key", "set_section_value")
 	header.AddSection("set_section_key_2", "set_section_value_2")
@@ -96,6 +105,7 @@ func TestAddSection(t *testing.T) {
 }
 
 func TestSetSections(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	sections := make(map[string]string)
 	sections["set_section_key"] = "set_section_value"
@@ -107,6 +117,7 @@ func TestSetSections(t *testing.T) {
 }
 
 func TestAddCategory(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddCategory("addCategory")
 	header.AddCategory("addCategory2")
@@ -117,6 +128,7 @@ func TestAddCategory(t *testing.T) {
 }
 
 func TestAddCategoryUnicode(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddCategory("カテゴリUnicode")
 	header.AddCategory("カテゴリ2Unicode")
@@ -128,6 +140,7 @@ func TestAddCategoryUnicode(t *testing.T) {
 }
 
 func TestAddCategories(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	categories := []string{"addCategory", "addCategory2"}
 	header.AddCategories(categories)
@@ -138,6 +151,7 @@ func TestAddCategories(t *testing.T) {
 }
 
 func TestSetCategories(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.SetCategories([]string{"setCategories"})
 	result, _ := header.JSONString()
@@ -147,6 +161,7 @@ func TestSetCategories(t *testing.T) {
 }
 
 func TestAddUniqueArg(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddUniqueArg("add_unique_argument_key", "add_unique_argument_value")
 	header.AddUniqueArg("add_unique_argument_key_2", "add_unique_argument_value_2")
@@ -157,6 +172,7 @@ func TestAddUniqueArg(t *testing.T) {
 }
 
 func TestSetUniqueArgs(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	args := make(map[string]string)
 	args["set_unique_argument_key"] = "set_unique_argument_value"
@@ -168,6 +184,7 @@ func TestSetUniqueArgs(t *testing.T) {
 }
 
 func TestAddFilter(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddFilter("footer", "text/html", "<strong>boo</strong>")
 	if len(header.Filters) != 1 {
@@ -176,6 +193,7 @@ func TestAddFilter(t *testing.T) {
 }
 
 func TestSetFilter(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	filter := &Filter{
 		Settings: make(map[string]interface{}),
@@ -190,6 +208,7 @@ func TestSetFilter(t *testing.T) {
 }
 
 func TestSetSendAt(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.SetSendAt(1428611024)
 	result, _ := header.JSONString()
@@ -199,6 +218,7 @@ func TestSetSendAt(t *testing.T) {
 }
 
 func TestAddSendEachAt(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddSendEachAt(1428611024)
 	header.AddSendEachAt(1428611025)
@@ -209,6 +229,7 @@ func TestAddSendEachAt(t *testing.T) {
 }
 
 func TestSetSendEachAt(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	sendEachAt := []int64{1428611024, 1428611025}
 	header.SetSendEachAt(sendEachAt)
@@ -219,6 +240,7 @@ func TestSetSendEachAt(t *testing.T) {
 }
 
 func TestSetASMGroupID(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.SetASMGroupID(1)
 	result, _ := header.JSONString()
@@ -228,6 +250,7 @@ func TestSetASMGroupID(t *testing.T) {
 }
 
 func TestSetIpPool(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.SetIpPool("testPool")
 	result, _ := header.JSONString()
@@ -237,6 +260,7 @@ func TestSetIpPool(t *testing.T) {
 }
 
 func TestSAddASMGroupToDisplay(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddASMGroupToDisplay(671332)
 	result, _ := header.JSONString()
@@ -246,6 +270,7 @@ func TestSAddASMGroupToDisplay(t *testing.T) {
 }
 
 func TestSAddASMGroupsToDisplay(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.AddASMGroupsToDisplay([]int{45, 23})
 	result, _ := header.JSONString()
@@ -255,6 +280,7 @@ func TestSAddASMGroupsToDisplay(t *testing.T) {
 }
 
 func TestJSONString(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	result, _ := header.JSONString()
 	if result != exampleJson()["json_string"] {
@@ -263,6 +289,7 @@ func TestJSONString(t *testing.T) {
 }
 
 func TestJSONStringWithAdds(t *testing.T) {
+	t.Parallel()
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}}}`))
 	header := NewSMTPAPIHeader()
 	header.AddTo("test@email.com")
@@ -284,6 +311,7 @@ func TestJSONStringWithAdds(t *testing.T) {
 }
 
 func TestJSONStringWithSets(t *testing.T) {
+	t.Parallel()
 	validHeader, _ := json.Marshal([]byte(`{"to":["test@email.com"],"sub":{"subKey":["subValue"]},"section":{"testSection":"sectionValue"},"category":["testCategory"],"unique_args":{"testUnique":"uniqueValue"},"filters":{"testFilter":{"settings":{"filter":"filterValue"}}},"asm_group_id":1,"ip_pool":"testPool"}`))
 	header := NewSMTPAPIHeader()
 	header.SetTos([]string{"test@email.com"})
@@ -313,6 +341,7 @@ func TestJSONStringWithSets(t *testing.T) {
 }
 
 func TestMarshalUnmarshall(t *testing.T) {
+	t.Parallel()
 	header := NewSMTPAPIHeader()
 	header.SetTos([]string{"test@email.com"})
 	sub := make(map[string][]string)
