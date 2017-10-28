@@ -4,7 +4,11 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"reflect"
+	"regexp"
+	"strconv"
+	"strings"
 	"testing"
+	"time"
 )
 
 func exampleJson() map[string]interface{} {
@@ -367,5 +371,31 @@ func TestMarshalUnmarshall(t *testing.T) {
 	newHeader.Load([]byte(b))
 	if !reflect.DeepEqual(header, newHeader) {
 		t.Errorf("Expected %v, but got %v", header, newHeader)
+	}
+}
+
+func TestLicenceDate(t *testing.T) {
+	b, err := ioutil.ReadFile("./LICENSE.txt")
+
+	if err != nil {
+		t.Fatalf("cannot open license file; got %v", err)
+	}
+
+	r := regexp.MustCompile("(\\d+-\\d+)")
+	dates := r.FindString(string(b))
+
+	if dates == "" {
+		t.Fatal("cannot find licence date range in the license file")
+	}
+
+	lastDate := strings.Split(dates, "-")[1]
+	maxLicenseYear, err := strconv.Atoi(lastDate)
+
+	if err != nil {
+		t.Fatalf("cannot convert licence date to int; got %v", err)
+	}
+
+	if maxLicenseYear != time.Now().Year() {
+		t.Fatalf("end licence year must be %d; got %d", time.Now().Year(), maxLicenseYear)
 	}
 }
