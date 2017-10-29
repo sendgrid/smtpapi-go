@@ -41,12 +41,6 @@ go get github.com/sendgrid/smtpapi-go
 
 ## Setup Environment Variables
 
-### Initial Setup
-
-```bash
-cp .env_sample .env
-```
-
 ### Environment Variable
 
 Update the development environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys), for example:
