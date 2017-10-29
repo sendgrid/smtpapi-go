@@ -364,7 +364,10 @@ func TestMarshalUnmarshall(t *testing.T) {
 	if err != nil {
 		t.Errorf("Error in JSONString %v", err)
 	}
-	newHeader.Load([]byte(b))
+	err = newHeader.Load([]byte(b))
+	if err != nil {
+		t.Errorf("Could not load newHeader %v", err)
+	}
 	if !reflect.DeepEqual(header, newHeader) {
 		t.Errorf("Expected %v, but got %v", header, newHeader)
 	}
