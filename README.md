@@ -38,6 +38,19 @@ All updates to this library is documented in our [CHANGELOG](https://github.com/
 ```bash
 go get github.com/sendgrid/smtpapi-go
 ```
+
+## Setup Environment Variables
+
+### Environment Variable
+
+Update the development environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys), for example:
+
+```bash
+echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
+echo "sendgrid.env" >> .gitignore
+source ./sendgrid.env
+```
+
 <a name="quick-start"></a>
 # Quick Start
 
