@@ -5,7 +5,11 @@ import (
 	"io/ioutil"
 	"os"
 	"reflect"
+	"regexp"
+	"strconv"
+	"strings"
 	"testing"
+	"time"
 )
 
 func exampleJson() map[string]interface{} {
@@ -375,14 +379,40 @@ func TestMarshalUnmarshall(t *testing.T) {
 }
 
 func TestRepoFiles(t *testing.T) {
-	files := []string{"docker/Docker", "docker/docker-compose.yml", ".env_sample",
+	files := []string{"docker/Dockerfile", "docker/docker-compose.yml", ".env_sample",
 		".gitignore", ".travis.yml", ".codeclimate.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md",
-		"CONTRIBUTING.md", ".github/ISSUE_TEMPLATE", "LICENSE.md", ".github/PULL_REQUEST_TEMPLATE",
+		"CONTRIBUTING.md", ".github/ISSUE_TEMPLATE", "LICENSE.txt", ".github/PULL_REQUEST_TEMPLATE",
 		"README.md", "TROUBLESHOOTING.md", "USAGE.md", "USE_CASES.md"}
 
 	for _, file := range files {
 		if _, err := os.Stat(file); os.IsNotExist(err) {
 			t.Errorf("Repo file does not exist: %v", file)
 		}
+  }
+}
+  
+func TestLicenceDate(t *testing.T) {
+	b, err := ioutil.ReadFile("./LICENSE.txt")
+
+	if err != nil {
+		t.Fatalf("cannot open license file; got %v", err)
+	}
+
+	r := regexp.MustCompile("(\\d+-\\d+)")
+	dates := r.FindString(string(b))
+
+	if dates == "" {
+		t.Fatal("cannot find licence date range in the license file")
+	}
+
+	lastDate := strings.Split(dates, "-")[1]
+	maxLicenseYear, err := strconv.Atoi(lastDate)
+
+	if err != nil {
+		t.Fatalf("cannot convert licence date to int; got %v", err)
+	}
+
+	if maxLicenseYear != time.Now().Year() {
+		t.Fatalf("end licence year must be %d; got %d", time.Now().Year(), maxLicenseYear)
 	}
 }
