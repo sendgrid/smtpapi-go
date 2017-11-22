@@ -3,6 +3,7 @@ package smtpapi
 import (
 	"encoding/json"
 	"io/ioutil"
+	"os"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -377,6 +378,19 @@ func TestMarshalUnmarshall(t *testing.T) {
 	}
 }
 
+func TestRepoFiles(t *testing.T) {
+	files := []string{"docker/Dockerfile", "docker/docker-compose.yml", ".env_sample",
+		".gitignore", ".travis.yml", ".codeclimate.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md",
+		"CONTRIBUTING.md", ".github/ISSUE_TEMPLATE", "LICENSE.txt", ".github/PULL_REQUEST_TEMPLATE",
+		"README.md", "TROUBLESHOOTING.md", "USAGE.md", "USE_CASES.md"}
+
+	for _, file := range files {
+		if _, err := os.Stat(file); os.IsNotExist(err) {
+			t.Errorf("Repo file does not exist: %v", file)
+		}
+  }
+}
+  
 func TestLicenceDate(t *testing.T) {
 	b, err := ioutil.ReadFile("./LICENSE.txt")
 
