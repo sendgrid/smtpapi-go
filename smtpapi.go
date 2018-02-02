@@ -12,18 +12,19 @@ const Version = "0.4.2"
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
 type SMTPAPIHeader struct {
-	To         []string            `json:"to,omitempty"`
-	Sub        map[string][]string `json:"sub,omitempty"`
-	Section    map[string]string   `json:"section,omitempty"`
-	Category   []string            `json:"category,omitempty"`
-	UniqueArgs map[string]string   `json:"unique_args,omitempty"`
-	Filters    map[string]Filter   `json:"filters,omitempty"`
-	ASMGroupID int                 `json:"asm_group_id,omitempty"`
-	ASMGroups  []int               `json:"asm_groups_to_display,omitempty"`
-	SendAt     int64               `json:"send_at,omitempty"`
-	SendEachAt []int64             `json:"send_each_at,omitempty"`
-	IpPool     string              `json:"ip_pool,omitempty"`
-	BatchID    string              `json:"batch_id,omitempty"`
+	To          []string            `json:"to,omitempty"`
+	Sub         map[string][]string `json:"sub,omitempty"`
+	Section     map[string]string   `json:"section,omitempty"`
+	Category    []string            `json:"category,omitempty"`
+	UniqueArgs  map[string]string   `json:"unique_args,omitempty"`
+	Filters     map[string]Filter   `json:"filters,omitempty"`
+	ASMGroupID  int                 `json:"asm_group_id,omitempty"`
+	ASMGroups   []int               `json:"asm_groups_to_display,omitempty"`
+	SendAt      int64               `json:"send_at,omitempty"`
+	SendEachAt  []int64             `json:"send_each_at,omitempty"`
+	IpPool      string              `json:"ip_pool,omitempty"`
+	BatchID     string              `json:"batch_id,omitempty"`
+	DynamicData map[string]string   `json:"dynamic_template_data,omitempty"`
 }
 
 // Filter represents an App/Filter and its settings
