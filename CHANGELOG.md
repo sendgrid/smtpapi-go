@@ -19,6 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - PR [#44](https://github.com/sendgrid/smtpapi-go/pull/44): Added Usage.md. Big thanks to [Tariq Ibrahim](https://github.com/tariq1890) for the PR!
 - PR [#49](https://github.com/sendgrid/smtpapi-go/pull/49): Added tests(License): The end year in the license file should be current year. Big thanks to [Marco Antônio Singer](https://github.com/marcosinger) for the PR!
 - PR [#53](https://github.com/sendgrid/smtpapi-go/pull/53): Added tests to check for certain repo files to exist in the repo. Big thanks to [Gabriel Lima](https://github.com/gabrielclima) for the PR!
+- PR [#63](https://github.com/sendgrid/smtpapi-go/pull/63): Adding dynamic data support. Big thanks to [Ron Canada](https://github.com/roncanada) for the PR!
 
 ### Fixed
 - PR [#21](https://github.com/sendgrid/smtpapi-go/pull/21): README.md typo. Big thanks to [Cícero Pablo](https://github.com/ciceropablo) for the PR!
@@ -26,7 +27,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - PR [#33](https://github.com/sendgrid/smtpapi-go/pull/33): Using the right contributors badge for smtpapi-go. Big thanks to [Tariq Ibrahim](https://github.com/tariq1890) for the PR!
 - PR [#35](https://github.com/sendgrid/smtpapi-go/pull/35): CONTRIBUTING.md typo. Big thanks to [Alex](https://github.com/pushkyn) for the PR!
 - PR [#48](https://github.com/sendgrid/smtpapi-go/pull/48): Update LICENSE.txt year. Big thanks to [Alex](https://github.com/pushkyn) for the PR!
-- PR [#63](https://github.com/sendgrid/smtpapi-go/pull/63): Adding dynamic data support. Big thanks to [Ron Canada](https://github.com/roncanada) for the PR!
 
 ## [0.5.0] - 2017-06-13
 ### Added
