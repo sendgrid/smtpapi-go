@@ -403,7 +403,7 @@ func TestLicenceDate(t *testing.T) {
 		t.Fatalf("cannot open license file; got %v", err)
 	}
 
-	r := regexp.MustCompile("(\\d+-\\d+)")
+	r := regexp.MustCompile(`(\\d+-\\d+)`)
 	dates := r.FindString(string(b))
 
 	if dates == "" {
