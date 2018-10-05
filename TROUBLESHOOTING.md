@@ -9,10 +9,10 @@ If you can't find an issue below, please open an [issue](https://github.com/send
 <a name="request-body"></a>
 ## Viewing the request body
 
-If you are having issues with the SMTPAPI, or it is not acting in the way you expect,
-viewing the instructions you are sending is a good place to start your troubleshooting.
+If you are having issues with the SMTPAPI, or it is not working in the way you expect,
+viewing the instructions that are being sent by you, is a good place to start your troubleshooting.
 
-You can view the headers we are passing to the SendGrid API in the following way.
+You can view the headers that we are passing to the SendGrid API in the following way.
 
 ```golang
   package  main
@@ -37,4 +37,4 @@ You can view the headers we are passing to the SendGrid API in the following way
     {"category":["NewUser"]} <nil>
   ```
 
-  Now you can ensure that your headers add up to your desired behaviour.
+  Now you can ensure that your headers will add up to your desired behaviour.
