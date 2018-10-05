@@ -189,13 +189,16 @@ func escapeUnicode(input string) string {
 			// surrogate pair
 			var r1, r2 = utf16.EncodeRune(r)
 			var s = fmt.Sprintf("\\u%x\\u%x", r1, r2)
-			buffer.WriteString(s)
+			// error always nil https://golang.org/pkg/bytes/#Buffer.WriteString
+			buffer.WriteString(s) // nolint: gas, gosec
 		} else if r > 127 {
 			var s = fmt.Sprintf("\\u%04x", r)
-			buffer.WriteString(s)
+			// error always nil https://golang.org/pkg/bytes/#Buffer.WriteString
+			buffer.WriteString(s) // nolint: gas, gosec
 		} else {
 			var s = fmt.Sprintf("%c", r)
-			buffer.WriteString(s)
+			// error always nil https://golang.org/pkg/bytes/#Buffer.WriteString
+			buffer.WriteString(s) // nolint: gas, gosec
 		}
 	}
 	return buffer.String()
