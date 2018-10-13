@@ -12,3 +12,6 @@
 
 .DS_Store
 .env
+
+# Dependency directory
+node_modules
