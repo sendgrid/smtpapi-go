@@ -138,11 +138,11 @@ Please run your code through:
 2. If you cloned a while ago, get the latest changes from upstream:
 
    ```bash
-   git checkout <dev-branch>
-   git pull upstream <dev-branch>
+   git checkout development
+   git pull upstream development
    ```
 
-3. Create a new topic branch (off the main project development branch) to
+3. Create a new topic branch (off the development branch) to
    contain your feature, change, or fix:
 
    ```bash
@@ -162,7 +162,7 @@ Please run your code through:
 5. Locally merge (or rebase) the upstream development branch into your topic branch:
 
    ```bash
-   git pull [--rebase] upstream master
+   git pull [--rebase] upstream development
    ```
 
 6. Push your topic branch up to your fork:
