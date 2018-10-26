@@ -9,6 +9,7 @@ before_script:
 - go get -u github.com/alecthomas/gometalinter
 - gometalinter --install
 script:
+- diff -u <(echo -n) <(gofmt -d -s .)
 - gometalinter --disable=golint ./...
 - go test -cover -bench=. -v -race ./...
 notifications:
