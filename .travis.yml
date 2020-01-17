@@ -1,6 +1,5 @@
 language: go
 go:
-- 1.6
 - 1.7
 - 1.8
 - 1.9
@@ -9,16 +8,4 @@ before_script:
 - go get -u github.com/alecthomas/gometalinter
 - gometalinter --install
 script:
-- diff -u <(echo -n) <(gofmt -d -s .)
-- gometalinter --disable=golint ./...
-- go test -cover -bench=. -v -race ./...
-notifications:
-  hipchat:
-    rooms:
-      secure: Tk19TNeLNQKRCGC5NKFEqCQTJsEJNrfZ56iuiA5iavIYVoTsX6Pi9VxvzYOeXNNuuHEF9yC3bnv9+yjNaBps7S+T/EiT1F7Qx4BIVgmETK+qg82XmFz5p8lWn7GmSZVWu2kBVlVMbtEdsYPbR19v1LvzSw2U9SO7j7CssWVyAmY=
-    template:
-    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
-      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
-      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
-    format: html
-
+- make test

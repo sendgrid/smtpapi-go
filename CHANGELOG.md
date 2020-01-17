@@ -3,7 +3,8 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.6.0] - 2018-06-04
+[2018-06-04] Version 0.6.0
+--------------------------
 ### Added
 - PR [#24](https://github.com/sendgrid/smtpapi-go/pull/24): Added Code of Conduct. Big thanks to [Shivam Agarwal](https://github.com/gr8shivam) for the PR!
 - PR [#26](https://github.com/sendgrid/smtpapi-go/pull/26): Added TROUBLESHOOTING.md. Big thanks to [Callam Delaney](https://github.com/cal97g) for the PR!
