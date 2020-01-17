@@ -4,8 +4,5 @@ go:
 - 1.8
 - 1.9
 - tip
-before_script:
-- go get -u github.com/alecthomas/gometalinter
-- gometalinter --install
 script:
 - make test
