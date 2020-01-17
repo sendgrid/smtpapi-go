@@ -1,0 +1,9 @@
+.PHONY: test install
+
+install:
+	go get -t -v ./...
+
+test: install
+	diff -u <(echo -n) <(gofmt -d -s .)
+	gometalinter --disable=golint ./...
+	go test -cover -bench=. -v -race ./...
