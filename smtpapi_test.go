@@ -2,12 +2,11 @@ package smtpapi
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"os"
 	"reflect"
 	"regexp"
-	"strconv"
-	"strings"
 	"testing"
 	"time"
 )
@@ -382,11 +381,11 @@ func TestRepoFiles(t *testing.T) {
 	/*
 		files := []string{"docker/Dockerfile", "docker/docker-compose.yml", ".env_sample",
 			".gitignore", ".travis.yml", ".codeclimate.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md",
-			"CONTRIBUTING.md", ".github/ISSUE_TEMPLATE", "LICENSE.txt", ".github/PULL_REQUEST_TEMPLATE",
+			"CONTRIBUTING.md", "ISSUE_TEMPLATE.md", "LICENSE.md", "PULL_REQUEST_TEMPLATE.md",
 			"README.md", "TROUBLESHOOTING.md", "USAGE.md", "USE_CASES.md"}
 	*/
 	files := []string{".env_sample", ".gitignore", ".travis.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md",
-		"CONTRIBUTING.md", ".github/ISSUE_TEMPLATE", "LICENSE.txt", ".github/PULL_REQUEST_TEMPLATE",
+		"CONTRIBUTING.md", "ISSUE_TEMPLATE.md", "LICENSE.md", "PULL_REQUEST_TEMPLATE.md",
 		"README.md", "TROUBLESHOOTING.md", "USAGE.md"}
 
 	for _, file := range files {
@@ -396,28 +395,18 @@ func TestRepoFiles(t *testing.T) {
 	}
 }
 
-func TestLicenceDate(t *testing.T) {
-	b, err := ioutil.ReadFile("./LICENSE.txt")
+func TestLicenseYear(t *testing.T) {
+	t.Parallel()
+	dat, err := ioutil.ReadFile("LICENSE.md")
+
+	currentYear := time.Now().Year()
+	r := fmt.Sprintf("%d", currentYear)
+	match, _ := regexp.MatchString(r, string(dat))
 
 	if err != nil {
-		t.Fatalf("cannot open license file; got %v", err)
+		t.Error("License File Not Found")
 	}
-
-	r := regexp.MustCompile(`(\d+-\d+)`)
-	dates := r.FindString(string(b))
-
-	if dates == "" {
-		t.Fatal("cannot find licence date range in the license file")
-	}
-
-	lastDate := strings.Split(dates, "-")[1]
-	maxLicenseYear, err := strconv.Atoi(lastDate)
-
-	if err != nil {
-		t.Fatalf("cannot convert licence date to int; got %v", err)
-	}
-
-	if maxLicenseYear != time.Now().Year() {
-		t.Fatalf("end licence year must be %d; got %d", time.Now().Year(), maxLicenseYear)
+	if !match {
+		t.Error("Incorrect Year in License Copyright")
 	}
 }
