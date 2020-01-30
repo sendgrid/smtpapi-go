@@ -1,7 +1,7 @@
 ![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
 
 [![BuildStatus](https://travis-ci.org/sendgrid/smtpapi-go.svg?branch=master)](https://travis-ci.org/sendgrid/smtpapi-go)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/php)](https://dx.sendgrid.com/newsletter/php)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/smtpapi-go.svg)](https://github.com/sendgrid/smtpapi-go/graphs/contributors)
@@ -100,4 +100,4 @@ smtpapi-go is maintained and funded by SendGrid, Inc. The names and logos for sm
 
 # License
 
-[The MIT License (MIT)](LICENSE.txt)
+[The MIT License (MIT)](LICENSE.md)
