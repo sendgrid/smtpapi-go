@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-01-30] Version 0.6.1
+--------------------------
+**Library - Docs**
+- [PR #85](https://github.com/sendgrid/smtpapi-go/pull/85): baseline all the templated markdown docs. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+- [PR #80](https://github.com/sendgrid/smtpapi-go/pull/80): added announcement to README. Thanks to [@luciajimenez](https://github.com/luciajimenez)!
+
+**Library - Chore**
+- [PR #84](https://github.com/sendgrid/smtpapi-go/pull/84): prep repo for automation. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+- [PR #65](https://github.com/sendgrid/smtpapi-go/pull/65): fix failing build. Thanks to [@vaskoz](https://github.com/vaskoz)!
+- [PR #69](https://github.com/sendgrid/smtpapi-go/pull/69): add style standards check. Thanks to [@pangaunn](https://github.com/pangaunn)!
+
+
 [2018-06-04] Version 0.6.0
 --------------------------
 ### Added
