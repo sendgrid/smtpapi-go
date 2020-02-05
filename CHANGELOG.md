@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-02-05] Version 0.6.2
+--------------------------
+**Library - Docs**
+- [PR #77](https://github.com/sendgrid/smtpapi-go/pull/77): Fixed link to bug report template. Thanks to [@alxshelepenok](https://github.com/alxshelepenok)!
+
+
 [2020-01-30] Version 0.6.1
 --------------------------
 **Library - Docs**
