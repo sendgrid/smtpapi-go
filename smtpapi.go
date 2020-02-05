@@ -8,7 +8,7 @@ import (
 )
 
 // Version represents the current version of the smtpapi-go library
-const Version = "0.6.1"
+const Version = "0.6.2"
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
 type SMTPAPIHeader struct {
