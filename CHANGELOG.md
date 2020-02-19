@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-02-19] Version 0.6.3
+--------------------------
+**Library - Docs**
+- [PR #61](https://github.com/sendgrid/smtpapi-go/pull/61): Added Code Review to Contributing.md. Thanks to [@mptap](https://github.com/mptap)!
+
+
 [2020-02-05] Version 0.6.2
 --------------------------
 **Library - Docs**
