@@ -8,22 +8,23 @@ import (
 )
 
 // Version represents the current version of the smtpapi-go library
-const Version = "0.4.2"
+const Version = "0.6.2"
 
 // SMTPAPIHeader will be used to set up X-SMTPAPI params
 type SMTPAPIHeader struct {
-	To         []string            `json:"to,omitempty"`
-	Sub        map[string][]string `json:"sub,omitempty"`
-	Section    map[string]string   `json:"section,omitempty"`
-	Category   []string            `json:"category,omitempty"`
-	UniqueArgs map[string]string   `json:"unique_args,omitempty"`
-	Filters    map[string]Filter   `json:"filters,omitempty"`
-	ASMGroupID int                 `json:"asm_group_id,omitempty"`
-	ASMGroups  []int               `json:"asm_groups_to_display,omitempty"`
-	SendAt     int64               `json:"send_at,omitempty"`
-	SendEachAt []int64             `json:"send_each_at,omitempty"`
-	IpPool     string              `json:"ip_pool,omitempty"`
-	BatchID    string              `json:"batch_id,omitempty"`
+	To          []string               `json:"to,omitempty"`
+	Sub         map[string][]string    `json:"sub,omitempty"`
+	Section     map[string]string      `json:"section,omitempty"`
+	Category    []string               `json:"category,omitempty"`
+	UniqueArgs  map[string]string      `json:"unique_args,omitempty"`
+	Filters     map[string]Filter      `json:"filters,omitempty"`
+	ASMGroupID  int                    `json:"asm_group_id,omitempty"`
+	ASMGroups   []int                  `json:"asm_groups_to_display,omitempty"`
+	SendAt      int64                  `json:"send_at,omitempty"`
+	SendEachAt  []int64                `json:"send_each_at,omitempty"`
+	IpPool      string                 `json:"ip_pool,omitempty"`
+	BatchID     string                 `json:"batch_id,omitempty"`
+	DynamicData map[string]interface{} `json:"dynamic_template_data,omitempty"`
 }
 
 // Filter represents an App/Filter and its settings
@@ -188,13 +189,16 @@ func escapeUnicode(input string) string {
 			// surrogate pair
 			var r1, r2 = utf16.EncodeRune(r)
 			var s = fmt.Sprintf("\\u%x\\u%x", r1, r2)
-			buffer.WriteString(s)
+			// error always nil https://golang.org/pkg/bytes/#Buffer.WriteString
+			buffer.WriteString(s) // nolint: gas, gosec
 		} else if r > 127 {
 			var s = fmt.Sprintf("\\u%04x", r)
-			buffer.WriteString(s)
+			// error always nil https://golang.org/pkg/bytes/#Buffer.WriteString
+			buffer.WriteString(s) // nolint: gas, gosec
 		} else {
 			var s = fmt.Sprintf("%c", r)
-			buffer.WriteString(s)
+			// error always nil https://golang.org/pkg/bytes/#Buffer.WriteString
+			buffer.WriteString(s) // nolint: gas, gosec
 		}
 	}
 	return buffer.String()

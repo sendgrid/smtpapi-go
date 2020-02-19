@@ -2,9 +2,13 @@ package smtpapi
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
+	"os"
 	"reflect"
+	"regexp"
 	"testing"
+	"time"
 )
 
 func exampleJson() map[string]interface{} {
@@ -13,13 +17,6 @@ func exampleJson() map[string]interface{} {
 	json.Unmarshal(data, &f)
 	json := f.(map[string]interface{})
 	return json
-}
-
-func TestSMTPAPIVersion(t *testing.T) {
-	t.Parallel()
-	if Version != "0.4.2" {
-		t.Error("SMTPAPI version does not match")
-	}
 }
 
 func TestNewSMTPIAPIHeader(t *testing.T) {
@@ -364,8 +361,45 @@ func TestMarshalUnmarshall(t *testing.T) {
 	if err != nil {
 		t.Errorf("Error in JSONString %v", err)
 	}
-	newHeader.Load([]byte(b))
+	err = newHeader.Load([]byte(b))
+	if err != nil {
+		t.Errorf("Could not load newHeader %v", err)
+	}
 	if !reflect.DeepEqual(header, newHeader) {
 		t.Errorf("Expected %v, but got %v", header, newHeader)
+	}
+}
+
+func TestRepoFiles(t *testing.T) {
+	/*
+		files := []string{"docker/Dockerfile", "docker/docker-compose.yml", ".env_sample",
+			".gitignore", ".travis.yml", ".codeclimate.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md",
+			"CONTRIBUTING.md", "ISSUE_TEMPLATE.md", "LICENSE.md", "PULL_REQUEST_TEMPLATE.md",
+			"README.md", "TROUBLESHOOTING.md", "USAGE.md", "USE_CASES.md"}
+	*/
+	files := []string{".env_sample", ".gitignore", ".travis.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md",
+		"CONTRIBUTING.md", "ISSUE_TEMPLATE.md", "LICENSE.md", "PULL_REQUEST_TEMPLATE.md",
+		"README.md", "TROUBLESHOOTING.md", "USAGE.md"}
+
+	for _, file := range files {
+		if _, err := os.Stat(file); os.IsNotExist(err) {
+			t.Errorf("Repo file does not exist: %v", file)
+		}
+	}
+}
+
+func TestLicenseYear(t *testing.T) {
+	t.Parallel()
+	dat, err := ioutil.ReadFile("LICENSE.md")
+
+	currentYear := time.Now().Year()
+	r := fmt.Sprintf("%d", currentYear)
+	match, _ := regexp.MatchString(r, string(dat))
+
+	if err != nil {
+		t.Error("License File Not Found")
+	}
+	if !match {
+		t.Error("Incorrect Year in License Copyright")
 	}
 }
