@@ -16,6 +16,7 @@ script:
 notifications:
   slack:
     if: branch = master
+    on_pull_requests: false
     on_success: never
     on_failure: change
     rooms:
