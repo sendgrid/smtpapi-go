@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-07-08] Version 0.6.4
+--------------------------
+**Library - Docs**
+- [PR #82](https://github.com/sendgrid/smtpapi-go/pull/82): add use cases directory. Thanks to [@mtroiani](https://github.com/mtroiani)!
+
+
 [2020-02-19] Version 0.6.3
 --------------------------
 **Library - Docs**
