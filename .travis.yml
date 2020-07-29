@@ -1,28 +1,27 @@
 language: go
 go:
-- 1.6
-- 1.7
-- 1.8
-- 1.9
-- tip
-before_install:
-  - go get -t -v ./...
-before_script:
-- go get -u github.com/alecthomas/gometalinter
-- gometalinter --install
+  - 1.7.x
+  - 1.8.x
+  - 1.9.x
+  - 1.10.x
+  - 1.11.x
+  - 1.12.x
+  - 1.13.x
+  - 1.14.x
+  - tip
+
 script:
-- gometalinter --disable=golint ./...
-- go test -cover -bench=. -v -race ./...
-- ./go.test.sh
+  - make test
+  - ./go.test.sh
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-notifications:
-  hipchat:
-    rooms:
-      secure: Tk19TNeLNQKRCGC5NKFEqCQTJsEJNrfZ56iuiA5iavIYVoTsX6Pi9VxvzYOeXNNuuHEF9yC3bnv9+yjNaBps7S+T/EiT1F7Qx4BIVgmETK+qg82XmFz5p8lWn7GmSZVWu2kBVlVMbtEdsYPbR19v1LvzSw2U9SO7j7CssWVyAmY=
-    template:
-    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
-      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
-      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
-    format: html
 
+notifications:
+  slack:
+    if: branch = main
+    on_pull_requests: false
+    on_success: never
+    on_failure: change
+    rooms:
+      - secure: IeJzY9FGjI5yK9fisoQst+C9JWzrjQAVWtOr2uD61uEuYPT38oh4FgMMrbw2TvN0672eC14sZMa6EkxViWuOpGX6BZnJhv/s35Oh7RpC9+XIDpgyim9xh7BPRSA9EyVr1X8XN81yXPi9Qn5dJBJBCmR8ceeRvxjq5BmFnp6EaN0=
