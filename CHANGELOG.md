@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-08-05] Version 0.6.5
+--------------------------
+**Library - Test**
+- [PR #56](https://github.com/sendgrid/smtpapi-go/pull/56): add CodeCov support to .travis.yml. Thanks to [@mptap](https://github.com/mptap)!
+
+
 [2020-07-08] Version 0.6.4
 --------------------------
 **Library - Docs**
