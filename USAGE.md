@@ -87,7 +87,7 @@ header.SetCategories([]string{
 
 The `header.SetCategory` method can be used to set a single specific category.
 
-It is useful for removing previously set categories. And will create a new array with the string you provide.
+It is useful for removing the previously set categories and it will create a new array with the string you provide.
 
 This method will remove any categories that have been previously set.
 
@@ -98,11 +98,11 @@ header.SetCategory("marketing") // Reset the categories to be 'marketing' only
 <a name="substitution"></a>
 ## Substitution
 
-Substitutions are a great way of writing short dynamic email content easily,
+Substitutions are a great way of writing some short dynamic email content easily,
 
 #### Adding a single substitution string
 
-The `header.AddSubstitution` method can be used to replace content for recipients.
+The `header.AddSubstitution` method can be used to replace the content for recipients.
 
 ```go
 header.AddSubstitution("-name-", "John") // Replace the -name- variable with John.
@@ -110,7 +110,7 @@ header.AddSubstitution("-name-", "John") // Replace the -name- variable with Joh
 
 #### Setting substitution strings
 
-The `header.SetSubstitutions` method can be used to replace content for any number of strings.
+The `header.SetSubstitutions` method can be used to replace the content for any number of strings.
 
 This method will reset any key pairs that have previously been set.
 
@@ -124,15 +124,15 @@ header.SetSubstitutions(map[string][]string{
 <a name="sections"></a>
 ## Sections
 
-Sections are similar to substitutions, but are specific to the actual message rather than the recipient.
+Sections that are similar to substitutions, but are specific to the actual message rather than the recipient.
 
-This is useful when you are sending multiple emails with the same style, but different content.
+This is useful when you are sending multiple emails with the same style, but with different content.
 
-Note that substitution variables can also be included within a section, but section variables cannot
+Note that substitution variables can also be included within a section, but the section variables cannot.
 
 #### Adding a section
 
-The `header.AddSection` method can be used to add a new section to the sections array. This is useful for building up a list of sections dynamically, perhaps based on a user's actions.
+The `header.AddSection` method can be used to add a new section to the sections array. This will be useful for building up a list of sections dynamically, perhaps based on a user's actions.
 
 ```go
 header.AddSection("-event_details-", "The event will be held tomorrow.") // Replaces -event_details- with the event's string
@@ -142,7 +142,7 @@ header.AddSection("-event_details-", "The event will be held tomorrow.") // Repl
 
 The `header.SetSections` allows you to set multiple sections in a single array.
 
-This is good when sending out multiple emails where no dynamic variation is required.
+This is good when sending out multiple emails where there are no dynamic variations required.
 
 This will reset any section key-pairs that have previously been set.
 
@@ -160,7 +160,7 @@ Filters allow you to dynamically toggle features such as click tracking, blind c
 
 #### Adding a single filter
 
-Adding a filter is easy with the `header.AddFilter` method.
+Adding a filter is easy by using the `header.AddFilter` method.
 
 This method requires 3 values:
 - The filter's name
@@ -174,7 +174,7 @@ header.AddFilter("dkim", "domain", "example.com")
 
 #### Adding pre-existing filters
 
-Filters with predetermined settings can also be added using the `header.SetFilter` method.
+Filters with pre-determined settings can also be added using the `header.SetFilter` method.
 
 ```go
 filter := &Filter{
@@ -209,7 +209,7 @@ Scheduling the time of your email campaign can be done using a collection of qui
 
 #### Adding a single 'send at' date
 
-The `header.AddSendEachAt` method is a good way to add the time to send at.
+The `header.AddSendEachAt` method is a good way to add the time to send the email.
 
 This method requires a unix timestamp as the input.
 
@@ -219,7 +219,7 @@ header.AddSendEachAt(1508694645)
 
 #### Setting multiple 'send at' date
 
-The `header.SetSendEachAt` method is useful for setting an array of times that recipients have their emails sent.
+The `header.SetSendEachAt` method is a useful method for setting an array of times to which recipients have their emails sent.
 
 This method requires an array of unix timestamps as the input.
 
@@ -243,9 +243,9 @@ header.SetSendAt(1508694645)
 <a name="batches"></a>
 ## Batches
 
-Batches are a great way to group a collection of scheduled items for sending. It allows you to cancel scheduled emails, and provides more control over the emails.
+Batches are a great way to group a collection of scheduled items for sending. It allows you to cancel the scheduled emails, and provides more control over the emails.
 
-The batch ID can be set using the `header.AddBatchId` method. You must have generated the batch ID first through the API.
+The batch ID can be set using the `header.AddBatchId` method. You must have generated the batch ID first with the help of the API.
 
 ```go
 header.AddBatchId("HkJ5yLYULb7Rj8GKSx7u025ouWVlMgAi") // Adds a previously generated batch ID to the emails
@@ -256,7 +256,7 @@ header.AddBatchId("HkJ5yLYULb7Rj8GKSx7u025ouWVlMgAi") // Adds a previously gener
 
 IP Pools allow you to group SendGrid IP addresses together. For example, if you have a set of marketing IPs, you can assign them a pool ID of `marketing`.
 
-The IP Pool name can be set using the `header.SetIpPool` method. You must have generated the IP Pool first through the API.
+The IP Pool name can be set using the `header.SetIpPool` method. You must have generated the IP Pool first with the help of  the API.
 
 ```go
 header.SetIpPool("marketing") // Sets the IP Pool to be the marketing collection of IPs

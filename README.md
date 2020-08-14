@@ -24,7 +24,7 @@
 # Announcements
 **The default branch name for this repository has been changed to `main` as of 07/27/2020.**
 
-All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-go/blob/master/CHANGELOG.md).
+All the updates to this library are documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-go/blob/master/CHANGELOG.md).
 
 <a name="installation"></a>
 # Installation
@@ -34,13 +34,13 @@ All updates to this library is documented in our [CHANGELOG](https://github.com/
 * Go version 1.6
 * The SendGrid service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-go)
 
-## Install Package
+## Install the Package
 
 ```bash
 go get github.com/sendgrid/smtpapi-go
 ```
 
-## Setup Environment Variables
+## Setup the Environment Variables
 
 ### Environment Variable
 
@@ -77,11 +77,11 @@ func main() {
 
 # Roadmap
 
-If you are interested in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/smtpapi-go/milestones). We would love to hear your feedback.
+If you are interested in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/smtpapi-go/milestones). Your feedback will be highly appreciated.
 
 # How to Contribute
 
-We encourage contribution to our libraries, please see our [CONTRIBUTING](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md) guide for details.
+We encourage contribution to our libraries, please see our [CONTRIBUTING](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md) guide for more details on contributions.
 
 Quick links:
 

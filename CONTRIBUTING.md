@@ -1,4 +1,4 @@
-Hello! Thank you for choosing to help contribute to one of the SendGrid open source libraries. There are many ways you can contribute and help is always welcome.  We simply ask that you follow the following contribution policies.
+Hello! Thank you for considering to help contribute to one of the SendGrid open source libraries. There are many ways you can contribute to your projects and additional help is always welcome. We simply require that you follow the following contribution policies.
 
 - [Feature Request](#feature-request)
 - [Submit a Bug Report](#submit-a-bug-report)
@@ -9,7 +9,7 @@ Hello! Thank you for choosing to help contribute to one of the SendGrid open sou
 - [Creating a Pull Request](#creating-a-pull-request)
 - [Code Reviews](#code-reviews)
 
-We use [Milestones](https://github.com/sendgrid/smtpapi-go/milestones) to help define current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions and additional PRs are welcomed and encouraged.
+We use [Milestones](https://github.com/sendgrid/smtpapi-go/milestones) to help define the current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions, and additional PRs are welcomed and encouraged.
 
 <a name="feature-request"></a>
 ## Feature Request
@@ -18,21 +18,21 @@ If you'd like to make a feature request, please read this section.
 
 The GitHub issue tracker is the preferred channel for library feature requests, but please respect the following restrictions:
 
-- Please **search for existing issues** in order to ensure we don't have duplicate bugs/feature requests.
-- Please be respectful and considerate of others when commenting on issues
+- Please **search for existing issues** to ensure we don't have duplicate bugs/feature requests.
+- Please be respectful and considerate of others when commenting on issues.
 
 <a name="submit-a-bug-report"></a>
 ## Submit a Bug Report
 
 Note: DO NOT include your credentials in ANY code examples, descriptions, or media you make public.
 
-A software bug is a demonstrable issue in the code base. In order for us to diagnose the issue and respond as quickly as possible, please add as much detail as possible into your bug report.
+A software bug is a demonstrable issue in the code base. For us to diagnose the issue and respond as quickly as possible, please add as much detail as possible into your bug report.
 
 Before you decide to create a new issue, please try the following:
 
 1. Check the Github issues tab if the identified issue has already been reported, if so, please add a +1 to the existing post.
-2. Update to the latest version of this code and check if issue has already been fixed
-3. Copy and fill in the Bug Report Template we have provided below
+2. Update to the latest version of this code and check if the issue has already been fixed.
+3. Copy and fill in the Bug Report Template we have provided below.
 
 ### Please use our Bug Report Template
 
@@ -41,7 +41,7 @@ In order to make the process easier, we've included a [sample bug report templat
 <a name="improvements-to-the-codebase"></a>
 ## Improvements to the Codebase
 
-We welcome direct contributions to the smtpapi-go code base. Thank you!
+We welcome direct contributions to our smtpapi-go code base. Thank you!
 
 ### Development Environment ###
 
@@ -120,7 +120,7 @@ Please run your code through:
    git remote add upstream https://github.com/sendgrid/smtpapi-go
    ```
 
-2. If you cloned a while ago, get the latest changes from upstream:
+2. If you cloned this a while ago, get the latest changes from upstream:
 
    ```bash
    git checkout <dev-branch>
