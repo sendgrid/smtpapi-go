@@ -1,6 +1,6 @@
-![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+![SendGrid Logo](twilio_sendgrid_logo.png)
 
-[![BuildStatus](https://travis-ci.org/sendgrid/smtpapi-go.svg?branch=master)](https://travis-ci.org/sendgrid/smtpapi-go)
+[![BuildStatus](https://travis-ci.org/sendgrid/smtpapi-go.svg?branch=main)](https://travis-ci.org/sendgrid/smtpapi-go)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/php)](https://dx.sendgrid.com/newsletter/php)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
@@ -24,7 +24,7 @@
 # Announcements
 **The default branch name for this repository has been changed to `main` as of 07/27/2020.**
 
-All the updates to this library are documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-go/blob/master/CHANGELOG.md).
+All the updates to this library are documented in our [CHANGELOG](CHANGELOG.md).
 
 <a name="installation"></a>
 # Installation
@@ -73,7 +73,7 @@ func main() {
 # Usage
 
 * [SendGrid Docs](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
-* [Example Code](https://github.com/sendgrid/smtpapi-go/tree/master/examples)
+* [Example Code](examples)
 
 # Roadmap
 
@@ -81,14 +81,14 @@ If you are interested in the future direction of this project, please take a loo
 
 # How to Contribute
 
-We encourage contribution to our libraries, please see our [CONTRIBUTING](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md) guide for more details on contributions.
+We encourage contribution to our libraries, please see our [CONTRIBUTING](CONTRIBUTING.md) guide for more details on contributions.
 
 Quick links:
 
-* [Feature Request](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#feature-request)
-* [Bug Reports](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#submit-a-bug-report)
-* [Improvements to the Codebase](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
-* [Review Pull Requests](https://github.com/sendgrid/smtpapi-go/blob/master/CONTRIBUTING.md#code-reviews)
+* [Feature Request](CONTRIBUTING.md#feature-request)
+* [Bug Reports](CONTRIBUTING.md#submit-a-bug-report)
+* [Improvements to the Codebase](CONTRIBUTING.md#improvements-to-the-codebase)
+* [Review Pull Requests](CONTRIBUTING.md#code-reviews)
 
 <a name="about"></a>
 # About

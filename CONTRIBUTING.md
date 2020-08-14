@@ -60,7 +60,7 @@ cd smtpapi-go
 
 ##### Execute: #####
 
-See the [examples folder](https://github.com/sendgrid/smtpapi-go/tree/master/examples) to get started quickly.
+See the [examples folder](examples) to get started quickly.
 
 To run the example:
 
@@ -85,9 +85,9 @@ smtpapi.go is the source code
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the [`/`](https://github.com/sendgrid/smtpapi-go/tree/master/) directory.
+All test files are in the [`smtpapi_test.go`](smtpapi_test.go) file.
 
-For the purposes of contributing to this repo, please update the [`smtpapi_test.go`](https://github.com/sendgrid/smtpapi-go/blob/master/test/smtpapi_test.go) and [`smtpapi_test_strings.go`](https://github.com/sendgrid/smtpapi-go/blob/master/test/smtpapi_test_strings.go) files with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`smtpapi_test.go`](smtpapi_test.go) and [`smtpapi_test_strings.json`](smtpapi_test_strings.json) files with unit tests as you modify the code.
 
 To run the tests:
 
@@ -147,7 +147,7 @@ Please run your code through:
 5. Locally merge (or rebase) the upstream development branch into your topic branch:
 
    ```bash
-   git pull [--rebase] upstream master
+   git pull [--rebase] upstream main
    ```
 
 6. Push your topic branch up to your fork:
@@ -157,7 +157,7 @@ Please run your code through:
    ```
 
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-    with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.
+    with a clear title and description against the `main` branch. All tests must be passing before we will review the PR.
 
 <a name="code-reviews"></a>
 ## Code Reviews
