@@ -1,7 +1,5 @@
 Hello! Thank you for considering to help contribute to one of the SendGrid open source libraries. There are many ways you can contribute to your projects and additional help is always welcome. We simply require that you follow the following contribution policies.
 
-- [CLAs and CCLAs](#cla)
-- [Roadmap & Milestones](#roadmap)
 - [Feature Request](#feature-request)
 - [Submit a Bug Report](#submit-a-bug-report)
 - [Improvements to the Codebase](#improvements-to-the-codebase)
@@ -9,22 +7,9 @@ Hello! Thank you for considering to help contribute to one of the SendGrid open 
 - [Testing](#testing)
 - [Style Guidelines & Naming Conventions](#style-guidelines-and-naming-conventions)
 - [Creating a Pull Request](#creating-a-pull-request)
+- [Code Reviews](#code-reviews)
 
-<a name="roadmap"></a>
-We use [Milestones](https://github.com/sendgrid/smtpapi-go/milestones) to help define the current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions and additional PRs are welcomed and encouraged.
-
-<a name="cla"></a>
-## CLAs and CCLAs
-
-Before you get started, SendGrid requires that a SendGrid Contributor License Agreement (CLA) be filled out by every contributor to a SendGrid open source project.
-
-Our goal with the CLA is to clarify the rights of our contributors and reduce other risks arising from inappropriate contributions.  The CLA also clarifies the rights SendGrid holds in each contribution and helps to avoid misunderstandings over what rights each contributor is required to grant to SendGrid when making a contribution.  In this way the CLA encourages broad participation by our open source community and helps us build strong open source projects, free from any individual contributor withholding or revoking rights to any contribution.
-
-SendGrid does not merge a pull request made against a SendGrid open source project until that pull request is associated with a signed CLA. Copies of the CLA are available [here](https://gist.github.com/SendGridDX/98b42c0a5d500058357b80278fde3be8#file-sendgrid_cla).
-
-When you create a Pull Request, after a few seconds, a comment will appear with a link to the CLA. Click the link and fill out the brief form and then click the "I agree" button and you are all set. You will not be asked to re-sign the CLA unless we make a change.
-
-There are a few ways to contribute, which we'll enumerate below:
+We use [Milestones](https://github.com/sendgrid/smtpapi-go/milestones) to help define the current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions, and additional PRs are welcomed and encouraged.
 
 <a name="feature-request"></a>
 ## Feature Request
@@ -51,7 +36,7 @@ Before you decide to create a new issue, please try the following:
 
 ### Please use our Bug Report Template
 
-In order to make the process easier, we've included a [sample bug report template](https://github.com/sendgrid/smtpapi-go/.github/ISSUE_TEMPLATE) (borrowed from [Ghost](https://github.com/TryGhost/Ghost/)). The template uses [GitHub flavored markdown](https://help.github.com/articles/github-flavored-markdown/) for formatting.
+In order to make the process easier, we've included a [sample bug report template](ISSUE_TEMPLATE.md).
 
 <a name="improvements-to-the-codebase"></a>
 ## Improvements to the Codebase
@@ -174,4 +159,7 @@ Please run your code through:
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
     with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.
 
-If you have any additional questions, please feel free to [email](mailto:dx@sendgrid.com) us or create an issue in this repo.
+<a name="code-reviews"></a>
+## Code Reviews
+
+If you can, please look at open PRs and review them. Give feedback and help us merge these PRs much faster! If you don't know how, Github has some [great information on how to review a Pull Request](https://help.github.com/articles/about-pull-request-reviews/).

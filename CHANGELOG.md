@@ -3,7 +3,44 @@ All the notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.6.0] - 2018-06-04
+[2020-08-05] Version 0.6.5
+--------------------------
+**Library - Test**
+- [PR #56](https://github.com/sendgrid/smtpapi-go/pull/56): add CodeCov support to .travis.yml. Thanks to [@mptap](https://github.com/mptap)!
+
+
+[2020-07-08] Version 0.6.4
+--------------------------
+**Library - Docs**
+- [PR #82](https://github.com/sendgrid/smtpapi-go/pull/82): add use cases directory. Thanks to [@mtroiani](https://github.com/mtroiani)!
+
+
+[2020-02-19] Version 0.6.3
+--------------------------
+**Library - Docs**
+- [PR #61](https://github.com/sendgrid/smtpapi-go/pull/61): Added Code Review to Contributing.md. Thanks to [@mptap](https://github.com/mptap)!
+
+
+[2020-02-05] Version 0.6.2
+--------------------------
+**Library - Docs**
+- [PR #77](https://github.com/sendgrid/smtpapi-go/pull/77): Fixed link to bug report template. Thanks to [@alxshelepenok](https://github.com/alxshelepenok)!
+
+
+[2020-01-30] Version 0.6.1
+--------------------------
+**Library - Docs**
+- [PR #85](https://github.com/sendgrid/smtpapi-go/pull/85): baseline all the templated markdown docs. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+- [PR #80](https://github.com/sendgrid/smtpapi-go/pull/80): added announcement to README. Thanks to [@luciajimenez](https://github.com/luciajimenez)!
+
+**Library - Chore**
+- [PR #84](https://github.com/sendgrid/smtpapi-go/pull/84): prep repo for automation. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+- [PR #65](https://github.com/sendgrid/smtpapi-go/pull/65): fix failing build. Thanks to [@vaskoz](https://github.com/vaskoz)!
+- [PR #69](https://github.com/sendgrid/smtpapi-go/pull/69): add style standards check. Thanks to [@pangaunn](https://github.com/pangaunn)!
+
+
+[2018-06-04] Version 0.6.0
+--------------------------
 ### Added
 - PR [#24](https://github.com/sendgrid/smtpapi-go/pull/24): Added Code of Conduct. Big thanks to [Shivam Agarwal](https://github.com/gr8shivam) for the PR!
 - PR [#26](https://github.com/sendgrid/smtpapi-go/pull/26): Added TROUBLESHOOTING.md. Big thanks to [Callam Delaney](https://github.com/cal97g) for the PR!
