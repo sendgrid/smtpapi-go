@@ -3,6 +3,15 @@ All the notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-08-19] Version 0.6.6
+--------------------------
+**Library - Chore**
+- [PR #86](https://github.com/sendgrid/smtpapi-go/pull/86): update GitHub branch references. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+
+**Library - Docs**
+- [PR #68](https://github.com/sendgrid/smtpapi-go/pull/68): Run *.md documents through Grammer.ly. Thanks to [@ssiddhantsharma](https://github.com/ssiddhantsharma)!
+
+
 [2020-08-05] Version 0.6.5
 --------------------------
 **Library - Test**
