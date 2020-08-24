@@ -9,8 +9,6 @@ Hello! Thank you for considering to help contribute to one of the SendGrid open 
 - [Creating a Pull Request](#creating-a-pull-request)
 - [Code Reviews](#code-reviews)
 
-We use [Milestones](https://github.com/sendgrid/smtpapi-go/milestones) to help define the current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions, and additional PRs are welcomed and encouraged.
-
 <a name="feature-request"></a>
 ## Feature Request
 

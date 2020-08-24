@@ -16,7 +16,6 @@
 * [Installation](#installation)
 * [Quick Start](#quick-start)
 * [Usage](#usage)
-* [Roadmap](#roadmap)
 * [How to Contribute](#how-to-contribute)
 * [About](#about)
 * [License](#license)
@@ -74,10 +73,6 @@ func main() {
 
 * [SendGrid Docs](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
 * [Example Code](examples)
-
-# Roadmap
-
-If you are interested in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/smtpapi-go/milestones). Your feedback will be highly appreciated.
 
 # How to Contribute
 
