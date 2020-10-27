@@ -371,14 +371,8 @@ func TestMarshalUnmarshall(t *testing.T) {
 }
 
 func TestRepoFiles(t *testing.T) {
-	/*
-		files := []string{"docker/Dockerfile", "docker/docker-compose.yml", ".env_sample",
-			".gitignore", ".travis.yml", ".codeclimate.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md",
-			"CONTRIBUTING.md", "ISSUE_TEMPLATE.md", "LICENSE.md", "PULL_REQUEST_TEMPLATE.md",
-			"README.md", "TROUBLESHOOTING.md", "USAGE.md", "USE_CASES.md"}
-	*/
 	files := []string{".env_sample", ".gitignore", ".travis.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md",
-		"CONTRIBUTING.md", "ISSUE_TEMPLATE.md", "LICENSE.md", "PULL_REQUEST_TEMPLATE.md",
+		"CONTRIBUTING.md", "ISSUE_TEMPLATE.md", "LICENSE", "PULL_REQUEST_TEMPLATE.md",
 		"README.md", "TROUBLESHOOTING.md", "USAGE.md"}
 
 	for _, file := range files {
@@ -390,7 +384,7 @@ func TestRepoFiles(t *testing.T) {
 
 func TestLicenseYear(t *testing.T) {
 	t.Parallel()
-	dat, err := ioutil.ReadFile("LICENSE.md")
+	dat, err := ioutil.ReadFile("LICENSE")
 
 	currentYear := time.Now().Year()
 	r := fmt.Sprintf("%d", currentYear)

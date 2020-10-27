@@ -1,7 +1,7 @@
 ![SendGrid Logo](twilio_sendgrid_logo.png)
 
 [![BuildStatus](https://travis-ci.org/sendgrid/smtpapi-go.svg?branch=main)](https://travis-ci.org/sendgrid/smtpapi-go)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/php)](https://dx.sendgrid.com/newsletter/php)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/smtpapi-go.svg)](https://github.com/sendgrid/smtpapi-go/graphs/contributors)
@@ -96,4 +96,4 @@ If you've instead found a bug in the library or would like new features added, g
 
 # License
 
-[The MIT License (MIT)](LICENSE.md)
+[The MIT License (MIT)](LICENSE)
