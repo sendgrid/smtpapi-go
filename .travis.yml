@@ -1,23 +1,20 @@
 language: go
 go:
-  - 1.7.x
-  - 1.8.x
-  - 1.9.x
-  - 1.10.x
-  - 1.11.x
-  - 1.12.x
-  - 1.13.x
-  - 1.14.x
-  - 1.15.x
-  - tip
-
+- 1.7.x
+- 1.8.x
+- 1.9.x
+- 1.10.x
+- 1.11.x
+- 1.12.x
+- 1.13.x
+- 1.14.x
+- 1.15.x
+- tip
 script:
-  - make test
-  - ./go.test.sh
-
+- make test
+- "./go.test.sh"
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
+- bash <(curl -s https://codecov.io/bash)
 notifications:
   slack:
     if: branch = main
@@ -25,4 +22,4 @@ notifications:
     on_success: never
     on_failure: change
     rooms:
-      - secure: IeJzY9FGjI5yK9fisoQst+C9JWzrjQAVWtOr2uD61uEuYPT38oh4FgMMrbw2TvN0672eC14sZMa6EkxViWuOpGX6BZnJhv/s35Oh7RpC9+XIDpgyim9xh7BPRSA9EyVr1X8XN81yXPi9Qn5dJBJBCmR8ceeRvxjq5BmFnp6EaN0=
+      secure: sEqy4nWbjoX6w8osSGfU8//yoJLY7/OSQcAB4kJaZ7Q+SAcVG18r4BKW77VojGjchvgLMtIJEMzVABGQ0kFg2FILUJomGUo6d8m8I0OvBSdXrleFxdQZnLSH6MbFhOHBdaKcUKZ9jR8EbUXT0FCk2EpOCLZM6gYV01/9zOzdQ7U=
