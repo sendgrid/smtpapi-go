@@ -2,7 +2,6 @@
 
 [![BuildStatus](https://travis-ci.com/sendgrid/smtpapi-go.svg?branch=main)](https://travis-ci.com/sendgrid/smtpapi-go)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Email Notifications Badge](https://dx.sendgrid.com/badge/php)](https://dx.sendgrid.com/newsletter/php)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/smtpapi-go.svg)](https://github.com/sendgrid/smtpapi-go/graphs/contributors)
 [![Go Report Card](https://goreportcard.com/badge/github.com/sendgrid/smtpapi-go)](https://goreportcard.com/report/github.com/sendgrid/smtpapi-go)
