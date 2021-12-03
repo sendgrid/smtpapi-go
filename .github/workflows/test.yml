@@ -26,8 +26,10 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
-      - name: Initialize go module
-        run: go mod init smtpapi-go && go mod tidy
+      - name: Set GOPATH
+        run: echo "GOPATH=$HOME" >> $GITHUB_ENV
+      - name: Set GOBIN
+        run: echo "GOBIN=$GOPATH/bin" >> $GITHUB_ENV
 
       - name: Build smtpapi-go
         run: make install
