@@ -27,9 +27,12 @@ All the updates to this library are documented in our [CHANGELOG](CHANGELOG.md).
 <a name="installation"></a>
 # Installation
 
-## Prerequisites
+## Supported Versions
 
 * Go version 1.11-1.16
+
+## Prerequisites
+
 * The SendGrid service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-go)
 
 ## Install the Package
