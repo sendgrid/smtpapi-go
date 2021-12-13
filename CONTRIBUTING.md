@@ -47,7 +47,7 @@ We welcome direct contributions to our smtpapi-go code base. Thank you!
 
 ##### Prerequisites #####
 
-- Go 1.7-1.16
+- Go 1.11-1.16
 
 ##### Initial setup: #####
 
