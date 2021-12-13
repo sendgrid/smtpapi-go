@@ -29,7 +29,7 @@ All the updates to this library are documented in our [CHANGELOG](CHANGELOG.md).
 
 ## Prerequisites
 
-* Go version 1.7-1.16
+* Go version 1.11-1.16
 * The SendGrid service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-go)
 
 ## Install the Package
