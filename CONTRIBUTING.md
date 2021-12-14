@@ -45,9 +45,9 @@ We welcome direct contributions to our smtpapi-go code base. Thank you!
 
 #### Install and Run Locally ####
 
-##### Prerequisites #####
+##### Supported Versions #####
 
-- Go 1.6
+- Go 1.11-1.16
 
 ##### Initial setup: #####
 
