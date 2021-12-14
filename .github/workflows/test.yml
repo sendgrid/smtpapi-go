@@ -32,8 +32,8 @@ jobs:
           echo "GOBIN=$HOME/bin" >> $GITHUB_ENV
           echo "GO111MODULE=off" >> $GITHUB_ENV
 
-      - name: Build and Run Tests
-        run: make install test
+      - name: Run Tests
+        run: make test
 
   notify-on-failure:
     name: Slack notify on failure
