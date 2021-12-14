@@ -29,7 +29,7 @@ jobs:
       - name: Set Go env vars
         run: |
           echo "GOPATH=$HOME" >> $GITHUB_ENV
-          echo "GOBIN=$GOPATH/bin" >> $GITHUB_ENV
+          echo "GOBIN=$HOME/bin" >> $GITHUB_ENV
           echo "GO111MODULE=off" >> $GITHUB_ENV
 
       - name: Build and Run Tests
