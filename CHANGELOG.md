@@ -3,6 +3,12 @@ All the notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2021-12-15] Version 0.6.7
+--------------------------
+**Library - Chore**
+- [PR #88](https://github.com/sendgrid/smtpapi-go/pull/88): migrate to GitHub Actions. Thanks to [@beebzz](https://github.com/beebzz)!
+
+
 [2020-08-19] Version 0.6.6
 --------------------------
 **Library - Chore**
