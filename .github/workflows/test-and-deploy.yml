@@ -42,9 +42,9 @@ jobs:
     needs: [ test ]
     steps:
       - name: Create GitHub Release
-      uses: sendgrid/dx-automator/actions/release@main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: sendgrid/dx-automator/actions/release@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   notify-on-failure:
     name: Slack notify on failure
