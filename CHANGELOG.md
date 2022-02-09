@@ -3,6 +3,13 @@ All the notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2022-02-09] Version 0.6.8
+--------------------------
+**Library - Chore**
+- [PR #90](https://github.com/sendgrid/smtpapi-go/pull/90): upgrade supported language versions. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+- [PR #89](https://github.com/sendgrid/smtpapi-go/pull/89): add deploy job to test and deploy gh workflow. Thanks to [@Hunga1](https://github.com/Hunga1)!
+
+
 [2021-12-15] Version 0.6.7
 --------------------------
 **Library - Chore**
