@@ -3,6 +3,12 @@ All the notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2022-03-09] Version 0.6.9
+--------------------------
+**Library - Chore**
+- [PR #91](https://github.com/sendgrid/smtpapi-go/pull/91): push Datadog Release Metric upon deploy success. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2022-02-09] Version 0.6.8
 --------------------------
 **Library - Chore**
