@@ -20,8 +20,6 @@
 * [License](#license)
 
 # Announcements
-**The default branch name for this repository has been changed to `main` as of 07/27/2020.**
-
 All the updates to this library are documented in our [CHANGELOG](CHANGELOG.md).
 
 <a name="installation"></a>
