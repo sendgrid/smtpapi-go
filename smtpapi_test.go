@@ -3,7 +3,6 @@ package smtpapi
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"reflect"
 	"regexp"
@@ -12,7 +11,7 @@ import (
 )
 
 func exampleJson() map[string]interface{} {
-	data, _ := ioutil.ReadFile("smtpapi_test_strings.json")
+	data, _ := os.ReadFile("smtpapi_test_strings.json")
 	var f interface{}
 	json.Unmarshal(data, &f)
 	json := f.(map[string]interface{})
@@ -384,7 +383,7 @@ func TestRepoFiles(t *testing.T) {
 
 func TestLicenseYear(t *testing.T) {
 	t.Parallel()
-	dat, err := ioutil.ReadFile("LICENSE")
+	dat, err := os.ReadFile("LICENSE")
 
 	currentYear := time.Now().Year()
 	r := fmt.Sprintf("%d", currentYear)

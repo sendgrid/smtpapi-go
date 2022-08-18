@@ -28,7 +28,7 @@ All the updates to this library are documented in our [CHANGELOG](CHANGELOG.md).
 
 ## Supported Versions
 
-* Go version 1.11-1.17
+* Go version 1.11-1.19
 
 ## Prerequisites
 
